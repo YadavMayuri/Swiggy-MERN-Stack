@@ -77,7 +77,7 @@ const UpdateProduct = () => {
                 ) : (
                     <div style={{border:".1rem solid white"}}>
                 <form onSubmit={handleSubmit} className="adpsw">
-                    <h1 style={{ fontSize: "3rem", marginBottom: "1.6rem" }}>Add Product</h1>
+                    <h1 style={{ fontSize: "3rem", marginBottom: "1.6rem" }}>Update Product</h1>
                     <input type="text" name="name" onChange={handleChange} value={productData.name} /><br />
                     <input type="number" name="price" onChange={handleChange} value={productData.price}/><br />
                     <input type="text" name="category" onChange={handleChange} value={productData.category}/><br />

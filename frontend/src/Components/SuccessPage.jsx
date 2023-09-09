@@ -2,7 +2,7 @@ import "../Css/style.css";
 import "../Css/responsive.css";
 import Navbar from "./Navbar";
 import { useNavigate } from "react-router-dom";
-import { useContext} from "react";
+import { useContext } from "react";
 import { AuthContext } from "../Context/AuthContext";
 
 
@@ -12,15 +12,15 @@ const SuccessPage = () => {
 
     return (
         <div>
-            <Navbar/>
-            <div className="screen">
+            <Navbar />
+            <div className="commonScreen">
                 <div className="mainDivBackground">
                     <div className="successContentWrap">
-                        <p className="orderCon">Your order has been placed successfully!</p>
-                        <p className="ConfEmail">Confirmation will be sent to your email.</p>
-                        <p className="shippingContent">Shipping to <span id="CurrentuserName">{state?.user?.name}</span> vashi, Mumbai,Maharashtra, 402107, India.</p>
-                        <p className="ThanksMsg" style={{fontSize:"2.5rem",margin:"2.5rem 0"}}>Thank you for shopping with us!</p>
-                        <input type="button" value={"Continue Shopping"} className="conShoppingbtn" onClick={() => router('/')} />
+                        <div className="simaegsWrapper">
+                            <img src="https://thebusinessrule.com/wp-content/uploads/2023/01/Swiggy-Business-Model-Delivery-Boy.jpeg" alt="" />
+                        </div>
+                        <p className="ThanksMsg" >Your order has been placed successfully!</p>
+                        <p className="shippingContent">Your order will arrive in 30 mins.</p>
                     </div>
                 </div>
             </div>

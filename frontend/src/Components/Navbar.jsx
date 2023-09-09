@@ -25,11 +25,17 @@ const Navbar = () => {
                                 <img src="https://cdn.worldvectorlogo.com/logos/swiggy-1.svg" alt="" />
                             </a>
                         </div>
-                        <div className="location-name">
-                            <span className="exact-location">Vashi</span>
-                            <span className="sub-location"> Navi Mumbai, Maharashtra, India</span>
-                            <span className="up-arrow"><i className="fa-solid fa-angle-down"></i></span>
-                        </div>
+
+                        {state?.user?.role == 'seller' ? (<>
+                        </>) :
+                            (<>
+                                <div className="location-name">
+                                    <span className="exact-location">Vashi</span>
+                                    <span className="sub-location"> Navi Mumbai, Maharashtra, India</span>
+                                    <span className="up-arrow"><i className="fa-solid fa-angle-down"></i></span>
+                                </div>
+                            </>)}
+
                     </div>
 
 
@@ -38,19 +44,19 @@ const Navbar = () => {
 
                             {state?.user?.role == 'seller' ? (
                                 <>
-                                    <li className="p-list-item" onClick={()=>router('/addProduct')}>
-                                        <a  className="p-icon-link">
+                                    <li className="p-list-item" onClick={() => router('/addProduct')}>
+                                        <a className="p-icon-link">
                                             <span className="p-nav-icon"> <Icon.FolderPlus className="smIcons" /></span>
-                                            <span className="p-nav-menu">Add</span>
+                                            <span className="p-nav-menu">Add Product</span>
                                         </a>
                                     </li>
-                                    <li className="p-list-item"  onClick={()=>router('/sellerAllProducts')}>
-                                        <a  className="p-icon-link" >
+                                    <li className="p-list-item" onClick={() => router('/sellerAllProducts')}>
+                                        <a className="p-icon-link" >
                                             <span className="p-nav-icon"> <Icon.Boxes className="smIcons" /></span>
-                                            <span className="p-nav-menu">View</span>
+                                            <span className="p-nav-menu">View Product</span>
                                         </a>
                                     </li>
-                               
+
                                 </>
                             ) :
                                 (
@@ -87,7 +93,7 @@ const Navbar = () => {
                                 </>
                             ) : (
                                 <>
-                                    <li className="p-list-item" onClick={()=>router('/login')}>
+                                    <li className="p-list-item" onClick={() => router('/login')}>
                                         <a className="p-icon-link">
                                             <span className="p-nav-icon"><Icon.Person /></span>
                                             <span className="p-nav-menu" id="switch">Sign In</span>
@@ -100,10 +106,10 @@ const Navbar = () => {
                                 </>
                             ) : (
                                 <>
-                                    <li className="p-list-item" onClick={()=>router('/cart')}>
+                                    <li className="p-list-item" onClick={() => router('/cart')}>
                                         <a className="p-icon-link">
-                                            <span className="p-nav-icon"><Icon.Cart /></span>
-                                            <span className="p-nav-menu">Cart</span>
+                                            {/* <span className='cProCount'>{state?.product}</span> */}
+                                            <span className="p-nav-menu" >Cart </span>
                                         </a>
                                     </li>
                                 </>

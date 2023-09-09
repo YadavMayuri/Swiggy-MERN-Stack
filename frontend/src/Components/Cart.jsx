@@ -110,10 +110,10 @@ const Cart = () => {
         }
     }
 
-    // const handleBuyNow = () => {
-    //     buyNow();
-    //     router('/successpage');
-    // }
+    const handleBuyNow = () => {
+        buyNow();
+        router('/successpage');
+    }
     return (
         <>
             <Navbar />
@@ -216,7 +216,7 @@ const Cart = () => {
                                                             Amazon Pay
                                                         </div>
                                                         <div className="cart-payment-btn" id="Payrupees"
-                                                           onClick={buyNow}>
+                                                           onClick={handleBuyNow}>
                                                                   ₹{totalPrice}
                                                         </div>
 
@@ -321,7 +321,7 @@ const Cart = () => {
                                             </div>
                                             <div className="cart-coupon">
                                                 <div className="c-coupon-icon">
-                                                    <i className="fa-solid fa-percent"></i>
+                                                   <Icon.PlusCircleDotted style={{fontSize:"1.7rem"}}/>
                                                 </div>
                                                 <div className="c-coupon-txt">
                                                     Apply coupon

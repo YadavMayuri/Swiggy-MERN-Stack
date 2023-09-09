@@ -86,9 +86,11 @@ const SellerAllProducts = () => {
                         <div className="commonScreen">
                             {products?.length ?
                                 <div style={{ width: "90%", margin: "auto" }}>
-                                    <div className="path">
+                                    <div className="path" style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
                                         <div className="path-menu" style={{ fontSize: "2rem", padding: "3rem 0 0 0", fontWeight: "bold" }}>Your Products</div>
+                                        <div className="path-menu" onClick={()=>router('/sellerdashboard')} style={{ fontSize: "2rem", padding: "3rem 0 0 0", fontWeight: "bold",cursor:"pointer" }}>Back To Dashboard</div>
                                     </div>
+                                
                                     <div className="products-container" >
                                         {products.map((product) => (
                                             <div className="product-dish" key={product._id}>
@@ -125,12 +127,13 @@ const SellerAllProducts = () => {
                                                         <h2 style={{ fontSize: "1.4rem", color: "red" }}>Delete</h2>
                                                     </div>
                                                 </div>
-                                               
+
 
                                             </div>
                                         ))}
-
+                                       
                                     </div>
+                                  
                                 </div> :
 
                                 <div >
