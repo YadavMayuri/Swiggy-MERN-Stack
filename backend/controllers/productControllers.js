@@ -91,3 +91,69 @@ export const sellerAllProducts = async (req, res) => {
     }
 
 } 
+
+
+
+
+export const getUpdateProduct = async (req, res) => {
+    try {
+        const { pId } = req.params;
+        console.log(pId, "pid");
+        if (!pId) return res.json({ error: "Product id is required!" })
+        const product = await Products.findById({ _id: pId });
+        console.log(product, "product");
+        if (!product) {
+            return res.status(404).json({ error: 'Product not found' });
+        }
+
+        return res.status(200).json({ success: true, product });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
+
+
+
+export const updateProduct = async (req, res) => {
+    try {
+        const pId = req.params.pId
+        const{name, price, category,image} = req.body.productData;
+
+        if(!name || !price || !category || !image) return res.status(400).json({message: "All fields are required!"})
+        console.log(name, price, category,image,"name, price, category,image");
+
+        if (!pId) return res.status(400).json({ message: "Product ID is required!" })
+        const product = await Products.findOneAndUpdate({ _id: pId },{name, price, category, image},{new: true}).exec();
+        console.log(product,"updated product");
+
+        if (product) {
+            return res.status(200).json({ success: true,message:"Product updated successfully!", product })
+        } else {
+            return res.status(404).json({ message: "Product not found!" })
+        }
+    } catch (err) {
+        console.log(err);
+        return res.status(404).json({ message: "Internal server error!" })
+    }
+}
+
+
+
+export const deleteProduct = async(req,res)=>{
+    try{
+        const {pId} = req.body;
+        console.log(pId,"lllllll");
+        if(!pId) return res.status(400).json({message:"Product ID is required!"})
+
+        const products = await Products.findByIdAndDelete({_id:pId},{new:true})
+        console.log(products,"jkkfjvddd");
+        if(!products)return res.status(404).json({message:"Product not found!"})
+
+        return res.status(200).json({success:true,message:"Product Deleted successfully!",products})
+        
+    }catch(err){
+        console.log(err);
+        return res.status(500).json({message:"Internal server error!"})
+    }
+}

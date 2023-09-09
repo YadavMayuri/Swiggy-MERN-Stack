@@ -970,7 +970,12 @@ html {
     outline: none;
     margin-top: 1rem;
 }
-
+.h-lineup {
+    border: none;
+    border-bottom: .1rem solid #d1d1d2;
+    outline: none;
+    /* margin-top: 1rem; */
+}
 .discount-offer-info {
     /* border: 1px solid blueviolet; */
     padding: 1.4rem 0rem;
@@ -2535,9 +2540,10 @@ html {
 .products-container{
     /* border: .2rem solid blue; */
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
     align-items: center;
     flex-wrap: wrap;
+    gap: 2.3rem;
 }
 
 

@@ -50,6 +50,28 @@ const SellerAllProducts = () => {
         getProducts()
     }, [state])
 
+
+    //delete product
+    async function deleteproduct(pId) {
+        try {
+            console.log("mmmmmmmm");
+            const response = await axios.post('http://localhost:3000/api/seller/deleteProduct', { pId })
+            console.log(response, "redolgnbjgvvv");
+            if (response.data.success) {
+                setProducts(products.filter(pro => pro._id !== pId))
+                toast.success(response.data.message)
+            }
+            else {
+                toast.error(response.data.message)
+            }
+
+        } catch (err) {
+            console.log(err);
+            return toast.error("Internal server error!")
+        }
+
+    }
+
     return (
         <>
             <Navbar />
@@ -65,7 +87,7 @@ const SellerAllProducts = () => {
                             {products?.length ?
                                 <div style={{ width: "90%", margin: "auto" }}>
                                     <div className="path">
-                                        <div className="path-menu" style={{ fontSize: "2rem", padding: "3rem 0 0 0",fontWeight:"bold" }}>Your Products</div>
+                                        <div className="path-menu" style={{ fontSize: "2rem", padding: "3rem 0 0 0", fontWeight: "bold" }}>Your Products</div>
                                     </div>
                                     <div className="products-container" >
                                         {products.map((product) => (
@@ -75,7 +97,7 @@ const SellerAllProducts = () => {
                                                 </div>
                                                 <div className="product-maker-info">
                                                     <div className="product-maker-name" id="for-product-name">{product.name} </div>
-                                                    {/* <div className="product-maker-location">Chinese, Indian</div> */}
+                                                    <div className="product-maker-location">{product.category}</div>
                                                 </div>
                                                 <div className="rating-price-info">
                                                     <div className="rating">
@@ -92,7 +114,18 @@ const SellerAllProducts = () => {
                                                     <span className="discount-icon"><Icon.Percent style={{ fontSize: "1rem" }} /></span>
                                                     <span className="discount-number">40% off | Use TRYNEW</span>
                                                 </div>
-                                                {/* <hr className="h-line" /> */}
+                                                <hr className="h-lineup" />
+                                                <div style={{ marginTop: "1rem", display: "flex", justifyContent: "space-between" }}>
+                                                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: ".4rem" }} onClick={() => router(`/updateProduct/${product._id}`)}>
+                                                        <Icon.PencilSquare style={{ fontSize: "1.5rem" }} />
+                                                        <h2 style={{ fontSize: "1.4rem", color: "black" }}>Update</h2>
+                                                    </div>
+                                                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: ".4rem" }} onClick={() => deleteproduct(product._id)}>
+                                                        <Icon.Trash3 style={{ fontSize: "1.5rem", color: "red" }} />
+                                                        <h2 style={{ fontSize: "1.4rem", color: "red" }}>Delete</h2>
+                                                    </div>
+                                                </div>
+                                               
 
                                             </div>
                                         ))}
@@ -103,7 +136,7 @@ const SellerAllProducts = () => {
                                 <div >
                                     <div className="commonScreen">
                                         <div style={{ border: ".1rem solid white" }}>
-                                            <div className="mlPnotfounD" style={{width:"25%",margin:"2rem auto",}}>
+                                            <div className="mlPnotfounD" style={{ width: "25%", margin: "2rem auto", }}>
                                                 <img src="https://stores.maxfashion.in/VendorpageTheme/Enterprise/EThemeForMax/images/product-not-found.jpg" alt="" />
                                             </div>
                                             <div>

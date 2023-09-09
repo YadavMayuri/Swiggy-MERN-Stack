@@ -16,6 +16,7 @@ import OrderHistory from './Components/OrderHistory';
 import AddProduct from './Components/Seller/AddProduct';
 import SellerDashboard from './Components/Seller/SellerDashboard';
 import SellerAllProducts from './Components/Seller/SellerAllProducts';
+import UpdateProduct from './Components/UpdateProduct';
 
 function App() {
   const { state } = useContext(AuthContext);
@@ -37,7 +38,7 @@ function App() {
         <Route exact path='/orderhistory' element={<OrderHistory/>}/>
         <Route exact path='/sellerdashboard' element={<SellerDashboard/>}/>
         <Route exact path='/sellerAllProducts' element={<SellerAllProducts/>}/>
-
+        <Route exact path='/updateproduct/:pId' element={<UpdateProduct/>}/>
 
 
       </Routes>

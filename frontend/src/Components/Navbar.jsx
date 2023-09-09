@@ -50,18 +50,7 @@ const Navbar = () => {
                                             <span className="p-nav-menu">View</span>
                                         </a>
                                     </li>
-                                    <li className="p-list-item">
-                                        <a  className="p-icon-link">
-                                            <span className="p-nav-icon"> <Icon.Box2 className="smIcons" /></span>
-                                            <span className="p-nav-menu">Update </span>
-                                        </a>
-                                    </li>
-                                    <li className="p-list-item">
-                                        <a  className="p-icon-link">
-                                            <span className="p-nav-icon"> <Icon.FolderX className="smIcons" /></span>
-                                            <span className="p-nav-menu">Delete</span>
-                                        </a>
-                                    </li>
+                               
                                 </>
                             ) :
                                 (

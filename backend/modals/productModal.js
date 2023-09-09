@@ -6,6 +6,7 @@ const Product = new Schema({
     name: String,
     price: Number,
     image: String,
+    category:String,
     sellerId : {
         type:mongoose.Schema.Types.ObjectId,
         ref:'Users'
