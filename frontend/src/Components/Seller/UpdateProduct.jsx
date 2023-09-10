@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate, useParams } from 'react-router-dom';
-import Navbar from "./Navbar";
+import Navbar from "../Navbar";
 
 const UpdateProduct = () => {
     const { pId } = useParams()

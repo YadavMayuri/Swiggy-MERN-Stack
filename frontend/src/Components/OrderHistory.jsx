@@ -70,7 +70,7 @@ const OrderHistory = () => {
                                         <div>
                                             {orderHead.cartProduct.map((pro) => (
                                                 <div>
-                                                    <div className="cart-products" key={pro._id} style={{display:"flex", justifyContent:"space-around",  padding: "0",borderBottom:".1rem solid lightgray"}}>
+                                                    <div className="cart-products" key={pro._id} style={{display:"flex", justifyContent:"start",gap:"2rem",  padding: "0",borderBottom:".1rem solid lightgray"}}>
                                                         <div className="cart-product-img" style={{ width: "13%"}} id="productImage">
                                                             <img src={pro.image} className="got-image" alt="" />
                                                         </div>
@@ -78,7 +78,7 @@ const OrderHistory = () => {
                                                             <div className="cart-product-name" id="productName">{pro.name}</div>
                                                             <div className="cart-product-id">{pro._id}</div>
                                                             <div className="cart-price-section">
-                                                                <div className="c-real-price" id="productPrice">₹ {pro.price} </div>
+                                                                <div className="c-real-price" style={{color:"gray"}} id="productPrice">₹ {pro.price} </div>
                                                             </div>
                                                         </div>
                                                     </div>

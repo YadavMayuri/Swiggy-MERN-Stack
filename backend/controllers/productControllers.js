@@ -80,7 +80,7 @@ export const sellerAllProducts = async (req, res) => {
         if (!user) return res.status(404).json({ message: "User not found!" })
 
         const sProducts = await Products.find({ sellerId: sellerId }).exec()
-        console.log(sProducts,"prooooooo");
+        console.log(sProducts, "prooooooo");
         if (!sProducts) return res.status(404).json({ message: "No products found!" })
 
         return res.status(200).json({ success: true, sProducts })
@@ -90,7 +90,7 @@ export const sellerAllProducts = async (req, res) => {
         return res.status(500).json({ message: "Internal server error!" })
     }
 
-} 
+}
 
 
 
@@ -118,17 +118,17 @@ export const getUpdateProduct = async (req, res) => {
 export const updateProduct = async (req, res) => {
     try {
         const pId = req.params.pId
-        const{name, price, category,image} = req.body.productData;
+        const { name, price, category, image } = req.body.productData;
 
-        if(!name || !price || !category || !image) return res.status(400).json({message: "All fields are required!"})
-        console.log(name, price, category,image,"name, price, category,image");
+        if (!name || !price || !category || !image) return res.status(400).json({ message: "All fields are required!" })
+        console.log(name, price, category, image, "name, price, category,image");
 
         if (!pId) return res.status(400).json({ message: "Product ID is required!" })
-        const product = await Products.findOneAndUpdate({ _id: pId },{name, price, category, image},{new: true}).exec();
-        console.log(product,"updated product");
+        const product = await Products.findOneAndUpdate({ _id: pId }, { name, price, category, image }, { new: true }).exec();
+        console.log(product, "updated product");
 
         if (product) {
-            return res.status(200).json({ success: true,message:"Product updated successfully!", product })
+            return res.status(200).json({ success: true, message: "Product updated successfully!", product })
         } else {
             return res.status(404).json({ message: "Product not found!" })
         }
@@ -140,20 +140,43 @@ export const updateProduct = async (req, res) => {
 
 
 
-export const deleteProduct = async(req,res)=>{
-    try{
-        const {pId} = req.body;
-        console.log(pId,"lllllll");
-        if(!pId) return res.status(400).json({message:"Product ID is required!"})
+export const deleteProduct = async (req, res) => {
+    try {
+        const { pId } = req.body;
+        console.log(pId, "lllllll");
+        if (!pId) return res.status(400).json({ message: "Product ID is required!" })
 
-        const products = await Products.findByIdAndDelete({_id:pId},{new:true})
-        console.log(products,"jkkfjvddd");
-        if(!products)return res.status(404).json({message:"Product not found!"})
+        const products = await Products.findByIdAndDelete({ _id: pId }, { new: true })
+        console.log(products, "jkkfjvddd");
+        if (!products) return res.status(404).json({ message: "Product not found!" })
 
-        return res.status(200).json({success:true,message:"Product Deleted successfully!",products})
-        
-    }catch(err){
+        return res.status(200).json({ success: true, message: "Product Deleted successfully!", products })
+
+    } catch (err) {
         console.log(err);
-        return res.status(500).json({message:"Internal server error!"})
+        return res.status(500).json({ message: "Internal server error!" })
     }
 }
+
+
+
+export const getByCategory = async (req, res) => {
+    try {
+        const { category } = req.query; // Use req.query to get the category parameter from the URL query string
+
+        const query = category ? { category } : {}; // If a category is provided, filter by category; otherwise, fetch all products
+
+        const products = await Products.find(query).exec();
+
+        if (!products || products.length === 0) {
+            return res.status(404).json({ success: false, message: "No Products Found!" });
+        }
+
+        return res.status(200).json({ success: true, products });
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({ success: false, message: "An error occurred!" });
+    }
+}
+
+

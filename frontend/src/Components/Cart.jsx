@@ -74,6 +74,7 @@ const Cart = () => {
                 setSubTotal(response.data.subTotal)
                 setTotalProduct(response.data.cartProducts)
                 setTotalprice(response.data.totalPrice)
+                toast.success(response.data.message)
             }
             else {
                 return toast.error(response.data.message)
@@ -118,17 +119,28 @@ const Cart = () => {
         <>
             <Navbar />
             {loading ? (
-                <div classNameName="screen">
+                <div className="screen">
                     <PageLoader />
                 </div>
             ) : (
                 <AuthProtected>
-                    <div classNameName="commonScreen">
+                    <div className="commonScreen">
                         {cartProduct?.length ?
                             <div>
                                 <div className="cart-container">
                                     <div className="cart-left-side">
                                         <div className="c-left-top-div">
+                                            <div className="c-cart-txt">
+                                                <div className="c-d-cart-head">
+                                                    Logged in
+                                                </div>
+                                                <div className="c-d-icon">
+                                                    <Icon.CheckCircleFill style={{ fontSize: "2rem", color: "#60b246" }} />
+                                                </div>
+                                            </div>
+                                            <div className="c-work-heading" style={{fontWeight:"500",marginBottom:"2rem",display:"flex",justifyContent:"start",gap:"2rem",paddingTop:"1rem",paddingBottom:"1rem"}}>
+                                              <span>{state?.user?.name} </span>    |  <span>{state?.user?.email}</span> 
+                                            </div>
                                             <div className="c-deliver-add-heading">
                                                 <div className="c-cart-txt">
                                                     <div className="c-d-cart-head">
@@ -152,7 +164,7 @@ const Cart = () => {
                                                     4, 3XFX+Q4V, Juhu Nagar, Sector 2, Vashi, Navi Mumbai, Maharashtra 400703, India
                                                 </div>
                                                 <div className="c-time">
-                                                    15 mins
+                                                    40 mins
                                                 </div>
                                             </div>
 
@@ -216,8 +228,8 @@ const Cart = () => {
                                                             Amazon Pay
                                                         </div>
                                                         <div className="cart-payment-btn" id="Payrupees"
-                                                           onClick={handleBuyNow}>
-                                                                  ₹{totalPrice}
+                                                            onClick={handleBuyNow}>
+                                                            ₹{totalPrice}
                                                         </div>
 
                                                     </div>
@@ -267,7 +279,7 @@ const Cart = () => {
                                             <div className="cart-products-adding-wrap" id="finalcart">
                                                 {cartProduct.map((pro) => (
                                                     <>
-                                                        <div className="cart-product-summery">
+                                                        <div className="cart-product-summery" key={pro._id}>
                                                             <div className="cart-product-s-img" id="product-img">
                                                                 <img src={pro.image} alt="" />
                                                             </div>
@@ -283,10 +295,10 @@ const Cart = () => {
                                                                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnA_HF3NAPvORJX0cxM5OWweLygJR9_sKpFg&usqp=CAU" alt="" />
                                                             </div>
                                                             <div className="product-veg-category" id="product-name">
-                                                            {pro.name}
+                                                                {pro.name}
                                                             </div>
                                                             <div className="add-remove-btns">
-                                                                <span className="remove-cart-btn">-</span>
+                                                                <span className="remove-cart-btn" onClick={()=>removeProductfromCart(pro._id)}>-</span>
                                                                 <span>1</span>
                                                                 <span className="add-cart-btn">+</span>
                                                             </div>
@@ -321,7 +333,7 @@ const Cart = () => {
                                             </div>
                                             <div className="cart-coupon">
                                                 <div className="c-coupon-icon">
-                                                   <Icon.PlusCircleDotted style={{fontSize:"1.7rem"}}/>
+                                                    <Icon.PlusCircleDotted style={{ fontSize: "1.7rem" }} />
                                                 </div>
                                                 <div className="c-coupon-txt">
                                                     Apply coupon
@@ -335,7 +347,7 @@ const Cart = () => {
                                                         Item Total
                                                     </div>
                                                     <div className="bill-amount" id="BillAmt">
-                                                    {totalProduct}
+                                                        {totalProduct}
                                                     </div>
                                                 </div>
                                                 <div className="cart-bill-info">
@@ -352,7 +364,7 @@ const Cart = () => {
                                                         TO PAY
                                                     </div>
                                                     <div className="bill-total-amount" id="BillTotalAmt">
-                                                    {totalPrice}
+                                                        {totalPrice}
                                                     </div>
                                                 </div>
                                             </div>
@@ -376,7 +388,7 @@ const Cart = () => {
 
                             <div style={{ border: ".1rem solid white" }} className="commonScreen">
 
-                                <div style={{ width: "30%", margin: "auto" }}>
+                                <div style={{ width: "30%", margin: " auto" }}>
                                     <div className="emptycartImage">
                                         <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/2xempty_cart_yfxml0" alt="" />
                                     </div>

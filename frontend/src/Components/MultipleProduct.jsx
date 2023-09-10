@@ -8,8 +8,7 @@ import "../Css/style.css";
 import "../Css/responsive.css";
 import PageLoader from "./PageLoader";
 import * as Icon from 'react-bootstrap-icons';
-
-
+import All1 from "../Images/All.png"
 
 const MultipleProduct = () => {
     const router = useNavigate()
@@ -46,6 +45,49 @@ const MultipleProduct = () => {
         }
         getProducts()
     }, [])
+
+
+    async function getAllProducts() {
+        try {
+            const response = await axios.get("http://localhost:3000/api/getAllProducts");
+            if (response.data.success) {
+                setProducts(response.data.products);
+            } else {
+                toast.error(response.data.message);
+            }
+        } catch (err) {
+            console.error("Error fetching all products:", err);
+            toast.error("An error occurred");
+        }
+    }
+
+
+    async function getByCategory(category) {
+        try {
+            console.log("in grtcat");
+            const response = await axios.get('http://localhost:3000/api/getByCategory', {
+                params: { category } // Pass the category as a query parameter
+            });
+
+            console.log(response.data, "ref from getcat");
+            if (response.data.success) {
+                setProducts(response.data.products);
+                console.log(`Products for category ${category}:`, response.data.products);
+            } else {
+                toast.error(response.data.message);
+                console.error(`Error for category ${category}:`, response.data.message);
+            }
+        } catch (err) {
+            // Handle any network or other errors for each category
+            console.error(`Error for category ${category}:`, err);
+            toast.error("An error occurred");
+        }
+    }
+
+
+
+
+
     return (
 
 
@@ -84,6 +126,32 @@ const MultipleProduct = () => {
 
                             </div>
 
+                            <div style={{ margin: "1rem " }}>
+                                <div className="gcategorywrapper" style={{ display: "flex", justifyContent: "space-evenly" }}>
+                                    <div className="getSinglecategory" onClick={() => getAllProducts()}>
+                                        <img src={All1} alt="" />
+                                    </div>
+                                    <div className="getSinglecategory" onClick={() => getByCategory('Burger')}>
+                                        <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029845/PC_Creative%20refresh/3D_bau/banners_new/Burger.png" alt="" />
+                                    </div>
+                                    <div className="getSinglecategory" onClick={() => getByCategory('Pizza')}>
+                                        <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029856/PC_Creative%20refresh/3D_bau/banners_new/Pizza.png" alt="" />
+                                    </div>
+                                    <div className="getSinglecategory" onClick={() => getByCategory('Sandwich')}>
+                                        <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029860/PC_Creative%20refresh/3D_bau/banners_new/Sandwich.png" alt="" />
+                                    </div>
+                                    <div className="getSinglecategory" onClick={() => getByCategory('Dosa')}>
+                                        <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029850/PC_Creative%20refresh/3D_bau/banners_new/Dosa.png" alt="" />
+                                    </div>
+                                    <div className="getSinglecategory" onClick={() => getByCategory('Cakes')}>
+                                        <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029845/PC_Creative%20refresh/3D_bau/banners_new/Cakes.png" alt="" />
+                                    </div>
+                                   
+                                  
+                                </div>
+                            </div>
+
+
                             {/* <!-- second navbar------------ --> */}
                             <div className="filter-content-wrapper">
 
@@ -106,24 +174,22 @@ const MultipleProduct = () => {
                             </div>
 
 
-                            {/* <!-- --products-- --> */}
-                            {/* 
-                            <!-- <div className="product-content-wrapper">
-                                <div id="products"></div>
 
-                            </div> --> */}
                             <div className="product-content-wrapper" id="finalswiggyproducts">
                                 {products.map((product) => (
+
                                     <div className="product-dish" key={product._id} onClick={() => router(`/singleProduct/${product._id}`)}>
 
                                         <div className="product-image" id="product-img">
+                                            <div className="ribbon-pop">PROMOTED</div>
                                             <img src={product.image} alt="" />
 
                                         </div>
                                         <div className="product-maker-info">
                                             <div className="product-maker-name" id="for-product-name">{product.name} </div>
-                                            {/* <div className="product-maker-location">Chinese, Indian</div> */}
+                                            <span style={{ width: "10" }}><Icon.Heart style={{ fontSize: "1.4rem", }} /></span>
                                         </div>
+                                        <div className="product-maker-location">{product.category}</div>
                                         <div className="rating-price-info">
                                             <div className="rating">
                                                 <span className="rating-icon"><Icon.StarFill style={{ fontSize: "1rem" }} /></span>

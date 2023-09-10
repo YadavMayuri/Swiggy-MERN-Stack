@@ -3,6 +3,8 @@ import { AuthContext } from "../../Context/AuthContext"
 import { useNavigate } from "react-router-dom"
 import * as Icon from 'react-bootstrap-icons';
 import { useEffect } from "react"
+import "../../Css/style.css";
+import "../../Css/responsive.css";
 
 
 const AuthProtected = ({ children }) => {
@@ -15,10 +17,13 @@ const AuthProtected = ({ children }) => {
         return (children)
     } else {
         return (
-            <div style={{ width: "60%", margin: "8rem auto" }}>
-                <h1 style={{ marginTop: "2rem", fontSize: "2.8rem", textAlign: "center" }}>This page requires login to access. Please log in first.</h1>
-                <button onClick={() => router('/login')} style={{ margin: "4rem auto", backgroundColor: "maroon", color: "white", outline: "none", border: "none", padding: "1rem 4rem", cursor: "pointer", display: "block", fontWeight: "700", fontSize: "1.6rem" }}>Login</button>
+            <div className="commonScreen" style={{border:".1rem solid white"}}>
+                <div style={{ width: "60%", margin: "8rem auto" }}>
+                    <h1 style={{ marginTop: "2rem", fontSize: "2.8rem", textAlign: "center" }}>This page requires login to access. Please log in first.</h1>
+                    <button onClick={() => router('/login')} style={{ margin: "4rem auto", backgroundColor: "#fc8019", color: "white", outline: "none", border: "none", padding: "1rem 4rem", cursor: "pointer", display: "block", fontWeight: "700", fontSize: "1.6rem" }}>Login</button>
+                </div>
             </div>
+
         )
     }
 
@@ -51,7 +56,7 @@ const SellerProtected = ({ children }) => {
         return (children)
     } else {
         return (
-            <div className="commonScreen" style={{border:".1rem solid white"}}>
+            <div className="commonScreen" style={{ border: ".1rem solid white" }}>
                 <div style={{ width: "60%", margin: "7rem auto", border: ".2rem solid black ", padding: "3rem 2rem" }}>
                     <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "1rem" }}>
                         <Icon.ExclamationTriangle style={{ fontSize: "2.8rem", textAlign: "center", color: "#fc8019" }} />

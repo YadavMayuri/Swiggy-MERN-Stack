@@ -30,10 +30,15 @@ summary {
 .cartproductdetails{
     display: flex;
     flex-direction: column;
-    padding-left: 2rem;
+    padding: 1rem;
+
 }
 .cart-product-name{
     font-weight: 700;
-    color: #832729;
+    color: #fc8019;
     
+}
+.cart-product-id{
+  color: gray;
+  margin-top: .6rem;
 }

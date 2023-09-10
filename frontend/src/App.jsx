@@ -16,7 +16,7 @@ import OrderHistory from './Components/OrderHistory';
 import AddProduct from './Components/Seller/AddProduct';
 import SellerDashboard from './Components/Seller/SellerDashboard';
 import SellerAllProducts from './Components/Seller/SellerAllProducts';
-import UpdateProduct from './Components/UpdateProduct';
+import UpdateProduct from './Components/Seller/UpdateProduct';
 
 function App() {
   const { state } = useContext(AuthContext);
