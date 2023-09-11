@@ -4,7 +4,6 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-import Footer from "./Footer";
 import Navbar from "./Navbar";
 import * as Icon from 'react-bootstrap-icons';
 import { useNavigate } from "react-router-dom";
@@ -20,7 +19,7 @@ const Cart = () => {
     const [cartProduct, setCartProduct] = useState([])
     const [totalPrice, setTotalprice] = useState(0)
     const [totalProduct, setTotalProduct] = useState(0)
-    const [subTotal, setSubTotal] = useState()
+    const [subTotal, setSubTotal] = useState(0)
     const [loading, setLoading] = useState(false);
 
 
@@ -39,9 +38,9 @@ const Cart = () => {
                     setTotalProduct(response.data.totalProducts)
                     setSubTotal(response.data.subTotal)
                     console.log(response.data.cartProducts);
-
+                    console.log(response.data.totalProducts,"response - tot pro from get pro controller");
                 } else {
-                    return toast.error
+                    return toast.error(response.data.message)
                 }
 
             } catch (err) {
@@ -63,18 +62,14 @@ const Cart = () => {
             if (response.data.success) {
                 dispatch({
                     type: "RemoveSingleProduct",
-                    payload: {
-                        CartProduct: response.data.cartProducts,
-                        Totalprice: response.data.totalPrice,
-                        TotalProduct: response.data.totalProducts,
-                        SubTotal: response.data.subTotal
-                    }
+                    payload: response.data.cart
                 })
                 setCartProduct(response.data.cartProducts)
                 setSubTotal(response.data.subTotal)
-                setTotalProduct(response.data.cartProducts)
+                setTotalProduct(response.data.totalProducts)
                 setTotalprice(response.data.totalPrice)
                 toast.success(response.data.message)
+                console.log(response.data.totalProducts,"response - tot pro from remove pro controller");
             }
             else {
                 return toast.error(response.data.message)
@@ -97,10 +92,10 @@ const Cart = () => {
             if (response.data.success) {
                 dispatch({
                     type: "EmptyCart",
-                    payload: response.data.finalCart
+                    payload: response.data.cart
                 })
                 setCartProduct(response.data.finalCart)
-
+                console.log(response.data.finalCart,"response.data.finalCart--- buy now");
                 toast.success("Order placed successfully!");
             } else {
                 toast.error("Error while processing transaction!")
@@ -138,7 +133,7 @@ const Cart = () => {
                                                     <Icon.CheckCircleFill style={{ fontSize: "2rem", color: "#60b246" }} />
                                                 </div>
                                             </div>
-                                            <div className="c-work-heading" style={{fontWeight:"500",marginBottom:"2rem",display:"flex",justifyContent:"start",gap:"2rem",paddingTop:"1rem",paddingBottom:"1rem"}}>
+                                            <div className="c-work-heading" style={{fontWeight:"500",marginBottom:"2rem",display:"flex",justifyContent:"start",gap:"2rem",paddingTop:"1rem",paddingBottom:"1rem",textTransform:"lowercase"}}>
                                               <span>{state?.user?.name} </span>    |  <span>{state?.user?.email}</span> 
                                             </div>
                                             <div className="c-deliver-add-heading">
@@ -278,8 +273,8 @@ const Cart = () => {
                                         <div className="cart-right-top-div">
                                             <div className="cart-products-adding-wrap" id="finalcart">
                                                 {cartProduct.map((pro) => (
-                                                    <>
-                                                        <div className="cart-product-summery" key={pro._id}>
+                                                    <div   key={pro._id}>
+                                                        <div className="cart-product-summery" >
                                                             <div className="cart-product-s-img" id="product-img">
                                                                 <img src={pro.image} alt="" />
                                                             </div>
@@ -306,7 +301,7 @@ const Cart = () => {
                                                                 ₹{pro.price}
                                                             </div>
                                                         </div>
-                                                    </>
+                                                    </div>
 
                                                 ))}
 

@@ -99,8 +99,8 @@ const SellerAllProducts = () => {
                                                 </div>
                                                 <div className="product-maker-info">
                                                     <div className="product-maker-name" id="for-product-name">{product.name} </div>
-                                                    <div className="product-maker-location">{product.category}</div>
                                                 </div>
+                                                <div className="product-maker-location">{product.category}</div>
                                                 <div className="rating-price-info">
                                                     <div className="rating">
                                                         <span className="rating-icon"><Icon.StarFill style={{ fontSize: "1rem" }} /></span>

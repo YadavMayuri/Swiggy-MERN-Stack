@@ -108,9 +108,22 @@ export const addCart = async (req, res) => {
 
         const user = await Users.findOneAndUpdate({ _id: userId }, { $push: { cartProduct: pId } }, { new: true }).exec();
         if (!user) return res.json({ error: "User not found!" });
-        const product = user.cartProduct
-        const totPro = product.length
-        return res.json({ success: true, message: "product added to cart!", product ,totPro});
+        
+        const cartProducts = user.cartProduct
+
+        const discount = 0;
+        let subTotal = 0;
+        for (const y of cartProducts) {
+            subTotal = subTotal + y.price
+        }
+        let totalPrice = subTotal - discount;
+        console.log(totalPrice, "total price here");
+
+        const totalProducts = cartProducts.length
+        console.log(totalProducts, "total products here");
+
+        const cartObj = { cartProducts, totalProducts }
+        return res.json({ success: true, message: "product added to cart!",cart: cartObj });
 
     } catch (err) {
         console.log(err);
@@ -122,23 +135,28 @@ export const addCart = async (req, res) => {
 export const getCartProducts = async (req, res) => {
     try {
         const { userId } = req.body;
-        if (!userId) return req.status(400).json({ message: "User is required!" })
+        if (!userId) return res.status(400).json({ message: "User is required!" })
 
         const user = await Users.findById(userId).populate('cartProduct')
+        if (!user) return res.status(404).json({ message: "User not found!" })
 
-        const cartProducts = user?.cartProduct
+        const cartProducts = user.cartProduct
         console.log(cartProducts, "cart pro from getcart pro cont");
 
-        // const discount = 2000;
+        const discount = 0;
         let subTotal = 0;
         for (const y of cartProducts) {
             subTotal = subTotal + y.price
         }
-        let totalPrice = subTotal - 0;
+        let totalPrice = subTotal - discount;
         console.log(totalPrice, "total price here");
+
         const totalProducts = cartProducts.length
         console.log(totalProducts, "total products here");
-        return res.status(200).json({ success: true, cartProducts, totalPrice, totalProducts, subTotal })
+
+        const cartObj = { cartProducts, totalProducts }
+        console.log(cartObj,"cartobject here from getcpro contr");
+        return res.status(200).json({ success: true, cartProducts, totalPrice, totalProducts, subTotal, cart: cartObj })
 
 
     } catch (err) {
@@ -155,12 +173,30 @@ export const removeproduct = async (req, res) => {
             return res.status(400).json({ message: "User ID and Product ID are required!" });
         }
 
-        const user = await Users.findByIdAndUpdate(userId, { $pull: { cartProduct: pId } }, { new: true }).exec();
+        const user = await Users.findByIdAndUpdate(userId, { $pull: { cartProduct: pId } }, { new: true }).populate('cartProduct').exec();
 
         if (!user) {
-            return res.status(404).json({ success: false, message: "User not found!" });
+            return res.status(404).json({ success: false, message: "Error while removing product from cart!" });
         }
-        return res.status(200).json({ success: true, message: "Product removed from cart!" });
+
+        const cartProducts = user.cartProduct
+        console.log(cartProducts, "cart pro from getcart pro cont");
+
+        const discount = 0;
+        let subTotal = 0;
+        for (const y of cartProducts) {
+            subTotal = subTotal + y.price
+        }
+        let totalPrice = subTotal - discount;
+        console.log(totalPrice, "total price here");
+
+        const totalProducts = cartProducts.length
+        console.log(totalProducts, "total products here");
+
+        const cartObj = { cartProducts, totalProducts }
+        console.log(cartObj,"cartobject here from remove contr");
+
+        return res.status(200).json({ success: true, message: "Product removed from cart!", cartProducts, totalPrice, totalProducts, subTotal, cart: cartObj });
 
     } catch (err) {
         console.error(err);
@@ -187,11 +223,15 @@ export const buyNow = async (req, res) => {
         await addToTransaction.save();
         console.log(addToTransaction, "addToTransactions");
 
-        const updateCart = await Users.findOneAndUpdate({ _id: userId }, { cartProduct: [] }).exec();
+        const updateCart = await Users.findOneAndUpdate({ _id: userId }, { cartProduct: [] }, { new: true }).exec();
         console.log(updateCart, "updateUserrr");
-        const finalCart = updateCart.cartProduct
 
-        return res.json({ success: true, finalCart })
+        const finalCart = updateCart.cartProduct
+        const totalProducts = finalCart.length;
+        const cartObj = { allCartproducts: finalCart, totalProducts }
+        console.log(cartObj,"cartobject here from buynow contr");
+
+        return res.json({ success: true, finalCart, cart: cartObj })
 
     } catch (err) {
         console.log(err);

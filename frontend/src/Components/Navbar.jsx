@@ -108,7 +108,7 @@ const Navbar = () => {
                                 <>
                                     <li className="p-list-item" onClick={() => router('/cart')}>
                                         <a className="p-icon-link">
-                                            {/* <span className='cProCount'>{state?.product}</span> */}
+                                            {state?.cart?.totalProducts ? (<><span className='cProCount'>{state?.cart?.totalProducts} </span></>) : (<> <span className="p-nav-icon"><Icon.Cart /></span></>)}
                                             <span className="p-nav-menu" >Cart </span>
                                         </a>
                                     </li>

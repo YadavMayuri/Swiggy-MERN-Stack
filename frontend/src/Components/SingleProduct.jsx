@@ -17,6 +17,7 @@ const SingleProduct = () => {
     const [product, setProduct] = useState()
     const [loading, setLoading] = useState(false);
 
+    console.log(state?.cart?.totalProducts,"total cart prod from navbar");
 
     useEffect(() => {
         async function getSingleProduct() {
@@ -58,7 +59,7 @@ const SingleProduct = () => {
                 if (data.success) {
                     dispatch({
                         type: "AddToCart",
-                        payload: data.product,
+                        payload: data.cart,
                     })
                     Toast.success("Product added to cart!")
                 } else {

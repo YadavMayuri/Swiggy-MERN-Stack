@@ -4,12 +4,12 @@ import { toast } from 'react-hot-toast';
 
 export const AuthContext = createContext();
 
-const initialState = { user: null, products: null, cart: null };
+const initialState = { user: null, products: null, cart: [] };
 
 const reducer = (state, action) => {
     switch (action.type) {
         case "LOGIN":
-            return { ...state, user: action.payload }
+            return { ...state, user: action.payload , cart:action.payload}
         case "LOGOUT":
             localStorage.removeItem("SwiggyJwtToken")
             toast.success("Logout successfully.")

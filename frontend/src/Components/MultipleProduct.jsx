@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -8,12 +8,16 @@ import "../Css/style.css";
 import "../Css/responsive.css";
 import PageLoader from "./PageLoader";
 import * as Icon from 'react-bootstrap-icons';
-import All1 from "../Images/All.png"
+import All1 from "../Images/All1.png"
+import { AuthContext } from "../Context/AuthContext";
 
 const MultipleProduct = () => {
     const router = useNavigate()
     const [products, setProducts] = useState()
     const [loading, setLoading] = useState(false);
+
+    const { state } = useContext(AuthContext)
+
 
     useEffect(() => {
         async function getProducts() {
@@ -126,53 +130,62 @@ const MultipleProduct = () => {
 
                             </div>
 
-                            <div style={{ margin: "1rem " }}>
-                                <div className="gcategorywrapper" style={{ display: "flex", justifyContent: "space-evenly" }}>
-                                    <div className="getSinglecategory" onClick={() => getAllProducts()}>
-                                        <img src={All1} alt="" />
+                            <p className="dstatemuserName">{state?.user ? (<>{state?.user?.name}, what's on your mind?
+                            </>) : (<> </>)}</p>
+
+                            <div style={{ position: "sticky", zIndex: "1000", backgroundColor: "white", top: "0", height: "100%" }}>
+                                <div >
+
+                                    <div className="gcategorywrapper" >
+                                        <div className="getSinglecategory" onClick={() => getAllProducts()}>
+                                            <img src={All1} alt="" style={{ height: "94%", paddingTop: "1.6rem" }} />
+                                        </div>
+                                        <div className="getSinglecategory" onClick={() => getByCategory('Burger')}>
+                                            <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029845/PC_Creative%20refresh/3D_bau/banners_new/Burger.png" alt="" />
+                                        </div>
+                                        <div className="getSinglecategory" onClick={() => getByCategory('Pizza')}>
+                                            <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029856/PC_Creative%20refresh/3D_bau/banners_new/Pizza.png" alt="" />
+                                        </div>
+                                        <div className="getSinglecategory" onClick={() => getByCategory('Sandwich')}>
+                                            <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029860/PC_Creative%20refresh/3D_bau/banners_new/Sandwich.png" alt="" />
+                                        </div>
+                                        <div className="getSinglecategory" onClick={() => getByCategory('Dosa')}>
+                                            <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029850/PC_Creative%20refresh/3D_bau/banners_new/Dosa.png" alt="" />
+                                        </div>
+                                        <div className="getSinglecategory" onClick={() => getByCategory('Pav Bhaji')}>
+                                            <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029854/PC_Creative%20refresh/3D_bau/banners_new/Pav_Bhaji.png" alt="" />
+                                        </div>
+                                        <div className="getSinglecategory" onClick={() => getByCategory('Cakes')}>
+                                            <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029845/PC_Creative%20refresh/3D_bau/banners_new/Cakes.png" alt="" />
+                                        </div>
+
+
                                     </div>
-                                    <div className="getSinglecategory" onClick={() => getByCategory('Burger')}>
-                                        <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029845/PC_Creative%20refresh/3D_bau/banners_new/Burger.png" alt="" />
-                                    </div>
-                                    <div className="getSinglecategory" onClick={() => getByCategory('Pizza')}>
-                                        <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029856/PC_Creative%20refresh/3D_bau/banners_new/Pizza.png" alt="" />
-                                    </div>
-                                    <div className="getSinglecategory" onClick={() => getByCategory('Sandwich')}>
-                                        <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029860/PC_Creative%20refresh/3D_bau/banners_new/Sandwich.png" alt="" />
-                                    </div>
-                                    <div className="getSinglecategory" onClick={() => getByCategory('Dosa')}>
-                                        <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029850/PC_Creative%20refresh/3D_bau/banners_new/Dosa.png" alt="" />
-                                    </div>
-                                    <div className="getSinglecategory" onClick={() => getByCategory('Cakes')}>
-                                        <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029845/PC_Creative%20refresh/3D_bau/banners_new/Cakes.png" alt="" />
-                                    </div>
-                                   
-                                  
                                 </div>
+
+
+                                {/* <!-- second navbar------------ --> */}
+                                <div className="filter-content-wrapper">
+
+                                    <div className="left-filter-content">
+                                        <h2>930 restaurants</h2>
+                                    </div>
+                                    <div className="right-filter-content">
+                                        <div className="right-filter-menu active-filter-menu">Relevance</div>
+                                        <div className="right-filter-menu">Delivery Time </div>
+                                        <div className="right-filter-menu">Rating </div>
+                                        <div className="right-filter-menu">Cost: Low to High </div>
+                                        <div className="right-filter-menu">Cost: High to Low </div>
+                                        <div className="right-filter-menu">
+                                            <span className="filter-txt"> Filters</span>
+                                            <span className="p-filter-icon"><Icon.ArrowDownUp /></span>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
                             </div>
-
-
-                            {/* <!-- second navbar------------ --> */}
-                            <div className="filter-content-wrapper">
-
-                                <div className="left-filter-content">
-                                    <h2>930 restaurants</h2>
-                                </div>
-                                <div className="right-filter-content">
-                                    <div className="right-filter-menu active-filter-menu">Relevance</div>
-                                    <div className="right-filter-menu">Delivery Time </div>
-                                    <div className="right-filter-menu">Rating </div>
-                                    <div className="right-filter-menu">Cost: Low to High </div>
-                                    <div className="right-filter-menu">Cost: High to Low </div>
-                                    <div className="right-filter-menu">
-                                        <span className="filter-txt"> Filters</span>
-                                        <span className="p-filter-icon"><Icon.ArrowDownUp /></span>
-                                    </div>
-
-
-                                </div>
-                            </div>
-
 
 
                             <div className="product-content-wrapper" id="finalswiggyproducts">
