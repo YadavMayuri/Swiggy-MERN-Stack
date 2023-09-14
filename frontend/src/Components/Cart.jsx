@@ -114,7 +114,7 @@ const Cart = () => {
         <>
             <Navbar />
             {loading ? (
-                <div className="screen">
+                <div className="commonScreen">
                     <PageLoader />
                 </div>
             ) : (
@@ -133,8 +133,8 @@ const Cart = () => {
                                                     <Icon.CheckCircleFill style={{ fontSize: "2rem", color: "#60b246" }} />
                                                 </div>
                                             </div>
-                                            <div className="c-work-heading" style={{fontWeight:"500",marginBottom:"2rem",display:"flex",justifyContent:"start",gap:"2rem",paddingTop:"1rem",paddingBottom:"1rem",textTransform:"lowercase"}}>
-                                              <span>{state?.user?.name} </span>    |  <span>{state?.user?.email}</span> 
+                                            <div className="c-work-heading" style={{fontWeight:"500",marginBottom:"2rem",display:"flex",justifyContent:"start",gap:"2rem",paddingTop:"1rem",paddingBottom:"1rem",}}>
+                                              <span>{state?.user?.name} </span>    |  <span style={{textTransform:"lowercase"}}>{state?.user?.email}</span> 
                                             </div>
                                             <div className="c-deliver-add-heading">
                                                 <div className="c-cart-txt">
@@ -380,8 +380,8 @@ const Cart = () => {
                                     </div>
                                 </div>
                             </div> :
-
-                            <div style={{ border: ".1rem solid white" }} className="commonScreen">
+                            
+                            <div className="commonScreen">
 
                                 <div style={{ width: "30%", margin: " auto" }}>
                                     <div className="emptycartImage">

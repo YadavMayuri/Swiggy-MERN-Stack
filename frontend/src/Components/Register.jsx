@@ -76,7 +76,7 @@ const Register = () => {
                                     <h1 className="l-heading">Sign up</h1>
                                     <div className="l-create-ac">
                                         or
-                                        <a onClick={()=>router('/login')} className="l-create-ac-txt">login to your account</a>
+                                        <a onClick={() => router('/login')} className="l-create-ac-txt">login to your account</a>
                                     </div>
                                     <hr className="l-hr-line" />
                                 </div>
@@ -86,7 +86,7 @@ const Register = () => {
 
                             </div>
 
-                            <form onSubmit={handleSubmit}>
+                            <form onSubmit={handleSubmit} className="regFormWrap">
                                 <div className="l-input-login">
                                     <input type="text" onChange={handleChange} name="name" required />
                                     <label>Name</label>
@@ -95,9 +95,9 @@ const Register = () => {
                                     <input type="email" onChange={handleChange} name="email" required />
                                     <label >Email</label>
                                 </div>
-                                <div className="l-input-login">
-                                    <span className="roletxt">Please select your role :</span>
-                                    <select onChange={handleChangeForSelect} style={{padding:"1rem 2rem",border:".1rem solid lightgray",outline:"none",marginLeft:"1.5rem",width:"20%"}}>
+                                <div >
+                                    <select onChange={handleChangeForSelect} className="l-input-login">
+                                    <option value='' selected disabled>Select your role</option>
                                         <option value='buyer'>Buyer</option>
                                         <option value='seller'>Seller</option>
                                     </select>

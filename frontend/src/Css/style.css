@@ -1407,75 +1407,74 @@ html {
 
 .l-container {
     width: 100%;
-    /* border: .2rem solid red; */
-    display: flex;
-    height: 100vh;
-
 }
 .l-right-side {
-    width: 45%;
-    /* border: .1rem solid green; */
-    padding: 2rem 4rem;
-    /* left: auto; */
-    /* right: 0px; */
-    /* position: fixed; */
-    margin: auto;
+    width: 40%;
+    padding: 2rem 3rem;
+    margin: 4rem auto;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
 .login-create-ac {
     display: flex;
     justify-content: space-between;
-    /* border: .1rem solid gray; */
-    margin-bottom: 2rem;
+    margin-bottom: .5rem;
 }
 
 .l-input-login {
     position: relative;
     width: 100%;
-    height: 6rem;
-    /* margin-bottom: 2rem; */
+    height: 4.5rem;
+    outline: none;
 }
-
 .l-input-login>input {
     position: absolute;
     top: 0;
     left: 0;
     background: transparent;
     padding: 1.4rem;
-    /* border: .2rem solid red; */
     font-size: 1.4rem;
 }
 
 .l-input-login>label {
     position: absolute;
-    top: 1;
+    top: .3rem;
     left: 1;
-    padding: 1.4rem;
+    padding: 1.2rem 1.2rem 2rem 1.2rem;
     display: inline-block;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     transition: .5s;
     pointer-events: none;
-
+    color: gray;
 }
-
 .l-input-login input:focus~label,
 .l-input-login input:valid~label {
-    transform: translateX(-1rem) translateY(-1.8rem);
+    transform: translateX(-1rem) translateY(-1rem);
     font-size: 1rem;
-    /* margin-top: 1.8rem; */
 }
 
+.l-input-login>input {
+    margin-top: .4rem;
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 1.4rem;
+    font-weight: 500;
+    letter-spacing: .04rem;
+    font-family: sans-serif;
+}
+.l-input-login {
+    border: .1rem solid lightgray;
+    padding: 1rem ;
+    font-size: 1.4rem;
+}
 .l-left-login {
-    width: 60%;
+    width: 50%;
     /* border: .1rem solid greenyellow; */
 }
-
 .l-right-img {
-    width: 15%;
+    width: 20%;
     /* border: .1rem solid greenyellow; */
 }
-
 .l-right-img>img {
     width: 100%;
     height: 100%;
@@ -1491,25 +1490,20 @@ html {
     cursor: pointer;
     font-weight: 600;
     outline: none;
-
 }
-
 .l-heading {
-    font-size: 2.8rem;
+    font-size: 2.4rem;
     color: #282c3f;
     letter-spacing: .04rem;
-    line-height: 1.2;
 }
-
 .l-create-ac-txt {
     /* font-weight: 600; */
     cursor: pointer;
     color: #fc8019;
     text-decoration: none;
     padding-left: .4rem;
-
+    font-size: 1.6rem;
 }
-
 .l-create-ac {
     font-size: 1.8rem;
     color: #282c3f;
@@ -1524,32 +1518,9 @@ html {
     border: .1rem solid #282c3f;
     margin-top: 2rem;
 }
-
-.l-input-login {
-    border: .1rem solid lightgray;
-    padding: 1rem;
-    font-size: 1.4rem;
-    /* margin-top: 3rem; */
-}
-
-.l-input-login>input {
-    margin-top: 1rem;
-    border: none;
-    outline: none;
-    width: 100%;
-    font-size: 2rem;
-    font-weight: 600;
-    color: #282c3f;
-    line-height: 1.2;
-    letter-spacing: .04rem;
-    font-family: sans-serif;
-    ;
-
-}
-
 .l-ref-txt {
     margin-top: 1rem;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: 600;
     color: #5d8ed5;
     cursor: pointer;
@@ -1557,7 +1528,6 @@ html {
     letter-spacing: .02rem;
     border: none;
     outline: none;
-    line-height: 1.2;
 }
 
 .l-login-btn {
@@ -1587,7 +1557,7 @@ html {
 
 
 .l-login-para {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     color: #686b78;
     letter-spacing: .04rem;
     line-height: 1.2;

@@ -88,6 +88,10 @@
 }
 
 @media screen and (max-width:600px) {
+    .l-right-side{
+        width: 100%;
+        box-shadow: none;
+    }
     .commonScreen{
         /* border: .1rem solid red; */
         margin-top: 18%;
@@ -369,6 +373,10 @@
         text-transform: capitalize;
         font-weight: 500;
         cursor: pointer;
-
     }
+}
+@media screen and (max-width: 414px) {
+   .l-right-img{
+    width: 25%;
+   }
 }
