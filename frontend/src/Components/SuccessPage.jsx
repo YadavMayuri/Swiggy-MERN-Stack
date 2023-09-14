@@ -19,8 +19,11 @@ const SuccessPage = () => {
                         <div className="simaegsWrapper">
                             <img src="https://thebusinessrule.com/wp-content/uploads/2023/01/Swiggy-Business-Model-Delivery-Boy.jpeg" alt="" />
                         </div>
-                        <p className="ThanksMsg" >Your order has been placed successfully!</p>
+                        <p className="ThanksMsg" >Order has been placed successfully!</p>
                         <p className="shippingContent">Your order will arrive in 30 mins.</p>
+                        <div>
+                            <input type="button" value={"Go Home"} className="swprodcommonBtn" onClick={() => router('/')} />
+                        </div>
                     </div>
                 </div>
             </div>

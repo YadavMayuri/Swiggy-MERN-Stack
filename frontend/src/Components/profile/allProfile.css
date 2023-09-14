@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: ProximaNova, arial, Helvetica Neue, sans-serif;
+}
+
+html {
+    font-size: 62.5%
+}
+
+.commonScreen {
+    margin-top: 6%;
+}
+.outerprofileSection {
+    background-color: #37718e;
+    padding: 4rem 0 0 0;
+    
+}
+.profInfoInouterPro {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 8rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #37718e;
+}
+.proNameEmailTxt h1 {
+    font-size: 2.6rem;
+    color: white;
+}
+.proNameEmailTxt p {
+    font-size: 1.4rem;
+    color: white;
+    margin-top: .5rem;
+}
+.proEditBtn{
+    font-size: 1.2rem;
+    color: white;
+    padding: 1rem 2rem;
+    border: .1rem solid lightgray;
+    outline: none;
+    background-color: #37718e;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+}
+.profileMainInfoContentWrapper{
+    width: 95%;
+    margin:  auto;
+    padding: 4rem 5rem;
+    /* border: .1rem solid red; */
+    background-color: white;
+}
+.procontentContainer{
+    /* border: .1rem solid red; */
+    display: flex;
+    justify-content: space-between;
+
+}
+.leftprofileOptionWrap{
+    /* border: .1rem solid peru; */
+    width: 23%;
+    height: 48rem;
+    padding:1.6rem 0 1.6rem 1.6rem ;
+    background-color: #edf1f7;
+}
+.rightProfileContentWrap{
+    /* border: .1rem solid peru; */
+    width: 74%;
+    height: 48rem;
+}
+.profOptionContainer{
+    display: flex;
+    justify-content: start;
+    gap: 1.2rem;
+    align-items: center;
+    padding: 1.6rem;
+    color:#535665;
+    cursor: pointer;
+}
+.profOptionContainer span:nth-child(1){
+    font-size: 1.5rem;
+}
+.profOptionContainer span:nth-child(2){
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+.leftprofileOptionWrap .profOptionContainer:nth-child(1){
+    background-color: white;
+}
+
+/* no order yet */
+.noOrderContentWrap{
+    width: 40%;
+    border: .1rem solid red;
+    margin: auto;
+}
+.noOrderimgwrapper{
+    width: 60%;
+    margin: auto;
+}
+.noOrderimgwrapper img{
+    width: 100%;
+    height: 100%;
+}
+.noOrderContentWrap h2{
+    font-size: 1.6rem;
+    text-align: center;
+    margin-top: 2rem;
+    color:#535665;
+
+}
+.noOrderContentWrap p{
+    font-size: 1.2rem;
+    color: gray;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

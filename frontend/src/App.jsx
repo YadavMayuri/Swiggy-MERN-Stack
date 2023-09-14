@@ -18,6 +18,7 @@ import SellerDashboard from './Components/Seller/SellerDashboard';
 import SellerAllProducts from './Components/Seller/SellerAllProducts';
 import UpdateProduct from './Components/Seller/UpdateProduct';
 import Profile from './Components/profile/profile';
+import MyOrders from './Components/profile/MyOrders';
 
 function App() {
   const { state } = useContext(AuthContext);
@@ -41,6 +42,9 @@ function App() {
         <Route exact path='/sellerAllProducts' element={<SellerAllProducts/>}/>
         <Route exact path='/updateproduct/:pId' element={<UpdateProduct/>}/>
         <Route exact path='/profile/' element={<Profile/>}/>
+        <Route exact path='/myorder/' element={<MyOrders/>}/>
+
+
 
 
 

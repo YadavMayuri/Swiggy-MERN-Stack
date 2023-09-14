@@ -88,6 +88,10 @@
 }
 
 @media screen and (max-width:600px) {
+    .commonScreen{
+        /* border: .1rem solid red; */
+        margin-top: 18%;
+    }
 
     html {
         font-size: 48%;
@@ -198,11 +202,6 @@
     .product-swiggy-logo {
         width: 5%;
     }
-
-    .p-slider {
-        margin-top: 20%;
-    }
-
     .filter-content-wrapper {
         flex-direction: column;
         margin-top: 1rem;
@@ -305,6 +304,9 @@
 }
 
 @media screen and (max-width: 550px) {
+    .commonScreen{
+        margin-top: 19%;
+    }
     .right-filter-menu {
         font-size: 1.3rem;
         text-transform: capitalize;
@@ -315,6 +317,15 @@
 }
 
 @media screen and (max-width: 490px) {
+    .section-3-left{
+        width: 80%;
+    }
+    .section-3-right{
+        display: none;
+    }
+    .commonScreen{
+        margin-top: 20%;
+    }
     .sw-sd-img {
         display: none;
     }
@@ -350,6 +361,9 @@
 }
 
 @media screen and (max-width: 462px) {
+    .commonScreen{
+        margin-top: 22%;
+    }
     .right-filter-menu {
         font-size: 1rem;
         text-transform: capitalize;

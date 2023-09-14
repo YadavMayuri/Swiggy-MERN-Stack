@@ -108,11 +108,11 @@ const MultipleProduct = () => {
 
             <Navbar />
             {loading ? (
-                <div className="screen">
+                <div className="commonScreen">
                     <PageLoader />
                 </div>
             ) : (
-                <div className="screen">
+                <div className="commonScreen">
                     {products?.length ?
                         <div>
                             <div className="p-slider">
@@ -164,7 +164,7 @@ const MultipleProduct = () => {
                                         <div className="getSinglecategory" onClick={() => handleCategoryClick('Pav Bhaji')}>
                                             <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029854/PC_Creative%20refresh/3D_bau/banners_new/Pav_Bhaji.png" alt="" />
                                         </div>
-                                        <div className="getSinglecategory" onClick={() => handleCategoryClick('Cakes')}>
+                                        <div className="getSinglecategory" onClick={() => getByCategory('Cakes')}>
                                             <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029845/PC_Creative%20refresh/3D_bau/banners_new/Cakes.png" alt="" />
                                         </div>
 

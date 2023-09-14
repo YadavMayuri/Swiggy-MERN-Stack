@@ -17,7 +17,7 @@ const SingleProduct = () => {
     const [product, setProduct] = useState()
     const [loading, setLoading] = useState(false);
 
-    console.log(state?.cart?.totalProducts,"total cart prod from navbar");
+    console.log(state?.cart?.totalProducts, "total cart prod from navbar");
 
     useEffect(() => {
         async function getSingleProduct() {
@@ -85,9 +85,9 @@ const SingleProduct = () => {
                 <PageLoader />
             ) : (
                 <AuthProtected>
-                    <div>
+                    <div className="commonScreen">
                         {product ? (
-                            <div className="commonScreen">
+                            <div >
 
                                 <div className="outer-container">
                                     <div className="sp-container">
@@ -155,7 +155,7 @@ const SingleProduct = () => {
                                                 <h4 className="deal-product-name">{product.name}</h4>
                                                 <span className="strike-price">₹500</span>
                                                 <span className="exact-price">₹{product.price}</span><br />
-                                                <input type="button" value={"Add To Cart"}  onClick={addProduct} className="AdCartISP"/>
+                                                <input type="button" value={"Add To Cart"} onClick={addProduct} className="AdCartISP" />
                                             </div>
                                             <div className="deal-img-add-btn">
                                                 <div className="deal-img">
@@ -182,7 +182,7 @@ const SingleProduct = () => {
                                             <div className="sp-footer-product-name">
                                                 <p className="ap-f-p-name">{product.name}</p>
                                                 <p className="outlet-name">(Outlet:Vashi)</p>
-                                                <p className="sp-address"><span className="sp-f-l-icon"><Icon.GeoAltFill style={{fontSize:"2.2rem"}}/></span>UNIT NO- S-08, SECOND FLOOR, INORBIT
+                                                <p className="sp-address"><span className="sp-f-l-icon"><Icon.GeoAltFill style={{ fontSize: "2.2rem" }} /></span>UNIT NO- S-08, SECOND FLOOR, INORBIT
                                                     MALL VASHI, SECTOR- 30A, vashi Navi Mumbai - 400706</p>
 
                                             </div>
@@ -191,20 +191,25 @@ const SingleProduct = () => {
                                     </div>
                                 </div>
 
+                                <Footer />
+
+
                             </div>
 
                         ) : (
-                            <div >
-                            <div className="swmpNotfound">
-                                <div className="mlPnotfounD">
-                                    <img src="https://stores.maxfashion.in/VendorpageTheme/Enterprise/EThemeForMax/images/product-not-found.jpg" alt="" />
-                                </div>
-                                <div>
-                                    <input type="button" value={"Back"} className="swprodcommonBtn" onClick={() => router('/')} />
-                                </div>
+                            <div className="commonScreen" >
+                                <div className="swmpNotfound">
+                                    <div className="mlPnotfounD">
+                                        <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/empty_404_3x_rgdw87" alt="" />
+                                    </div>
+                                    <h1>Page not found</h1>
+                                    <p>Uh-oh! Looks like the page you are trying to access, doesn't exist. Please start afresh.</p>
+                                    <div>
+                                        <input type="button" value={"Go Home"} className="swprodcommonBtn" onClick={() => router('/')} />
+                                    </div>
 
+                                </div>
                             </div>
-                        </div>
                         )}
                     </div>
                 </AuthProtected>
@@ -213,7 +218,6 @@ const SingleProduct = () => {
 
 
 
-            <Footer />
 
         </>
 
