@@ -40,13 +40,13 @@ export const Register = async (req, res) => {
 export const Login = async (req, res) => {
     try {
         const { email, password } = req.body;
-        if (!email || !password) return res.status(400).json({ message: "Please fill all the fields." })
+        if (!email || !password) return res.status(400).json({ message: "Please fill all the fields!" })
         const response = await Users.findOne({ email }).exec();
 
         if (!response) return res.status(400).json({ message: "User not found" })
         const comparePassword = await bcrypt.compare(password, response.password);
         console.log(response,"resp from login");
-        if (!comparePassword) return res.status(400).json({ message: "Credientials not matched." })
+        if (!comparePassword) return res.status(400).json({ message: "Credientials not matched!" })
 
         const userObj = { userId: response._id, name: response.name, email: response.email, role:response.role }
         console.log(userObj,"userObj");
@@ -55,10 +55,10 @@ export const Login = async (req, res) => {
 
         console.log("jwt token", process.env.SwiggyJwtToken);
 
-        return res.status(200).json({ success: "Login successful.", user: userObj, token: token })
+        return res.status(200).json({ success: "Login successful!", user: userObj, token: token })
 
     } catch (err) {
-        return res.status(500).json({ message: "Internal server error." })
+        return res.status(500).json({ message: "Internal server error!" })
     }
 }
 

@@ -18,6 +18,7 @@ const MultipleProduct = () => {
 
     const { state } = useContext(AuthContext)
 
+    const [selectedCategory, setSelectedCategory] = useState("All"); // Step 1: Initialize selectedCategory with "All"
 
     useEffect(() => {
         async function getProducts() {
@@ -88,8 +89,16 @@ const MultipleProduct = () => {
         }
     }
 
-
-
+      // Step 2: Update selectedCategory when a category is clicked
+      const handleCategoryClick = (category) => {
+        setSelectedCategory(category);
+        console.log("Selected category:", category);
+        if (category === "All") {
+            getAllProducts();
+        } else {
+            getByCategory(category);
+        }
+    };
 
 
     return (
@@ -137,25 +146,25 @@ const MultipleProduct = () => {
                                 <div >
 
                                     <div className="gcategorywrapper" >
-                                        <div className="getSinglecategory" onClick={() => getAllProducts()}>
+                                        <div className="getSinglecategory" onClick={() => handleCategoryClick("All")}>
                                             <img src={All1} alt="" style={{ height: "94%", paddingTop: "1.6rem" }} />
                                         </div>
-                                        <div className="getSinglecategory" onClick={() => getByCategory('Burger')}>
+                                        <div className="getSinglecategory" onClick={() => handleCategoryClick('Burger')}>
                                             <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029845/PC_Creative%20refresh/3D_bau/banners_new/Burger.png" alt="" />
                                         </div>
-                                        <div className="getSinglecategory" onClick={() => getByCategory('Pizza')}>
+                                        <div className="getSinglecategory" onClick={() => handleCategoryClick('Pizza')}>
                                             <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029856/PC_Creative%20refresh/3D_bau/banners_new/Pizza.png" alt="" />
                                         </div>
-                                        <div className="getSinglecategory" onClick={() => getByCategory('Sandwich')}>
+                                        <div className="getSinglecategory" onClick={() => handleCategoryClick('Sandwich')}>
                                             <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029860/PC_Creative%20refresh/3D_bau/banners_new/Sandwich.png" alt="" />
                                         </div>
-                                        <div className="getSinglecategory" onClick={() => getByCategory('Dosa')}>
+                                        <div className="getSinglecategory" onClick={() => handleCategoryClick('Dosa')}>
                                             <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029850/PC_Creative%20refresh/3D_bau/banners_new/Dosa.png" alt="" />
                                         </div>
-                                        <div className="getSinglecategory" onClick={() => getByCategory('Pav Bhaji')}>
+                                        <div className="getSinglecategory" onClick={() => handleCategoryClick('Pav Bhaji')}>
                                             <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029854/PC_Creative%20refresh/3D_bau/banners_new/Pav_Bhaji.png" alt="" />
                                         </div>
-                                        <div className="getSinglecategory" onClick={() => getByCategory('Cakes')}>
+                                        <div className="getSinglecategory" onClick={() => handleCategoryClick('Cakes')}>
                                             <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029845/PC_Creative%20refresh/3D_bau/banners_new/Cakes.png" alt="" />
                                         </div>
 
@@ -168,9 +177,9 @@ const MultipleProduct = () => {
                                 <div className="filter-content-wrapper">
 
                                     <div className="left-filter-content">
-                                        <h2>930 restaurants</h2>
+                                        <h2>Restaurants to explore {selectedCategory}</h2>
                                     </div>
-                                    <div className="right-filter-content">
+                                    {/* <div className="right-filter-content">
                                         <div className="right-filter-menu active-filter-menu">Relevance</div>
                                         <div className="right-filter-menu">Delivery Time </div>
                                         <div className="right-filter-menu">Rating </div>
@@ -182,7 +191,7 @@ const MultipleProduct = () => {
                                         </div>
 
 
-                                    </div>
+                                    </div> */}
                                 </div>
 
                             </div>

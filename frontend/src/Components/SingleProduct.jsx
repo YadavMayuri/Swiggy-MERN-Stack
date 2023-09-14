@@ -87,7 +87,7 @@ const SingleProduct = () => {
                 <AuthProtected>
                     <div>
                         {product ? (
-                            <div>
+                            <div className="commonScreen">
 
                                 <div className="outer-container">
                                     <div className="sp-container">
@@ -103,16 +103,6 @@ const SingleProduct = () => {
                                                     <span>/</span>
                                                     <span><a href="" className="sp-active"> {product.name}</a></span>
                                                 </div>
-
-                                                <div className="sp-product-name-time">
-                                                    <div className="sp-productname">
-                                                        Burger King
-                                                    </div>
-                                                    <div className="sp-delivery-time">
-                                                        22 MINS
-                                                    </div>
-                                                </div>
-
                                             </div>
                                             <div className="sp-right-content">
                                                 <div className="sp-search">

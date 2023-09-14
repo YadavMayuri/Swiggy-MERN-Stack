@@ -67,13 +67,13 @@ const Navbar = () => {
                                                 <span className="p-nav-menu">Search</span>
                                             </a>
                                         </li>
-                                        <li className="p-list-item">
+                                        <li className="p-list-item" onClick={() => router('/')}>
                                             <a className="p-icon-link">
                                                 <span className="p-nav-icon"><Icon.Percent /></span>
                                                 <span className="p-nav-menu">Offers<sup className="sup-new">NEW</sup> </span>
                                             </a>
                                         </li>
-                                        <li className="p-list-item">
+                                        <li className="p-list-item" onClick={() => router('/')}>
                                             <a className="p-icon-link">
                                                 <span className="p-nav-icon"><Icon.PatchQuestion /></span>
                                                 <span className="p-nav-menu">Help</span>
@@ -108,7 +108,9 @@ const Navbar = () => {
                                 <>
                                     <li className="p-list-item" onClick={() => router('/cart')}>
                                         <a className="p-icon-link">
-                                            {state?.cart?.totalProducts ? (<><span className='cProCount'>{state?.cart?.totalProducts} </span></>) : (<> <span className="p-nav-icon"><Icon.Cart /></span></>)}
+                                            {state?.cart?.totalProducts ? (<>
+                                                <span className='cProCount'>{state?.cart?.totalProducts} </span>
+                                            </>) : (<> <span className="p-nav-icon"><Icon.Cart /></span></>)}
                                             <span className="p-nav-menu" >Cart </span>
                                         </a>
                                     </li>

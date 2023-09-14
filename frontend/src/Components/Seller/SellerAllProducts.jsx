@@ -87,7 +87,7 @@ const SellerAllProducts = () => {
                             {products?.length ?
                                 <div style={{ width: "90%", margin: "auto" }}>
                                     <div className="path" style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-                                        <div className="path-menu" style={{ fontSize: "2rem", padding: "3rem 0 0 0", fontWeight: "bold" }}>Your Products</div>
+                                        <div className="path-menu" style={{ fontSize: "2rem", padding: "3rem 0 0 0", fontWeight: "bold" }}>Your Products : {products.length}</div>
                                         <div className="path-menu" onClick={()=>router('/sellerdashboard')} style={{ fontSize: "2rem", padding: "3rem 0 0 0", fontWeight: "bold",cursor:"pointer" }}>Back To Dashboard</div>
                                     </div>
                                 
@@ -123,7 +123,7 @@ const SellerAllProducts = () => {
                                                         <h2 style={{ fontSize: "1.4rem", color: "black" }}>Update</h2>
                                                     </div>
                                                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: ".4rem" }} onClick={() => deleteproduct(product._id)}>
-                                                        <Icon.Trash3 style={{ fontSize: "1.5rem", color: "red" }} />
+                                                        <Icon.XSquare style={{ fontSize: "1.5rem", color: "red" }} />
                                                         <h2 style={{ fontSize: "1.4rem", color: "red" }}>Delete</h2>
                                                     </div>
                                                 </div>
