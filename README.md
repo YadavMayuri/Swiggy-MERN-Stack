@@ -25,7 +25,7 @@ Welcome to `Swiggy clone`, where your culinary adventure begins! Our platform si
 - `MongoDB`
 
  ## How to Use 📖🔍
-First you have to have to go to the `Home Page`. There you have to click on Log in / Sign up Button to get to the `sign up & login page`. Then user will be redirected to Location based page. The foods can be sorted according to `Categories`.Click on the food image there you can add it to cart by clicking on the `add to cart` button. You can add multiple items to the cart. Click on `Pay` to proceed to the checkout. It will redirected to the `Order Success Page`. Peek into your profile to view your `order history`. 
+First you have to go to the `Home Page`. There you have to click on Log in / Sign up Button to get to the `sign up & login page`. Then user will be redirected to Location based page. The foods can be sorted according to `Categories`.Click on the food image there you can add it to cart by clicking on the `add to cart` button. You can add multiple items to the cart. Click on `Pay` to proceed to the checkout. It will redirected to the `Order Success Page`. Peek into your profile to view your `order history`. 
 
  ## Screenshots 📷
  - **Home Page**
