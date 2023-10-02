@@ -1,4 +1,4 @@
-![viewProduct](https://github.com/YadavMayuri/Swiggy-MERN-Stack/assets/126373490/ce0f699a-5721-4be0-8840-8ff0a26f952f)# Swiggy Clone Project
+# Swiggy Clone Project
 
 Welcome to `Swiggy clone`, where your culinary adventure begins! Our platform simplifies the process of exploring and ordering delicious food.  Simply sign up, explore nearby options, and browse through tasty categories. Add your favorites to the cart, pay with a click,  and boom—your tasty order is set. Your profile is like a personal food journal—keeping track of all the tasty stories from your orders.🍔🍕🍰
 
