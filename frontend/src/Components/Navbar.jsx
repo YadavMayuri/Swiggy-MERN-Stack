@@ -84,7 +84,7 @@ const Navbar = () => {
 
                             {state?.user ? (
                                 <>
-                                    <li className="p-list-item">
+                                    <li className="p-list-item" onClick={() => router('/myprofile')}>
                                         <a className="p-icon-link">
                                             <span className="p-nav-icon"><Icon.Person /></span>
                                             <span className="p-nav-menu" id="switch">{state?.user?.name}</span>
