@@ -7,7 +7,7 @@ Welcome to `Swiggy clone`, where your culinary adventure begins! Our platform si
 - **Landing-page :** Look like as swiggy user interface.
 - **Navbar :** Common Nav Bar for all pages.
 - **Sign-Up :** User sign up page.
-- **Sign-Up :** User authentication to check whether user email and password match with details existing on the server.
+- **Sign-In :** User authentication to check whether user email and password match with details existing on the server.
 - **Food Category Page :**  New foods created dynamically with filter by category.
 - **Single food Details Page :** Details of selected food.
 - **Cart :** User can see or remove foods added in the cart.
