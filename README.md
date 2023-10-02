@@ -8,10 +8,12 @@ Welcome to `Swiggy clone`, where your culinary adventure begins! Our platform si
 - **Navbar :** Common Nav Bar for all pages.
 - **Sign-Up :** User sign up page.
 - **Sign-In :** User authentication to check whether user email and password match with details existing on the server.
+- **Role based user :** User can select role - Seller / buyer while sign up.
 - **Food Category Page :**  New foods created dynamically with filter by category.
 - **Single food Details Page :** Details of selected food.
 - **Cart :** User can see or remove foods added in the cart.
 - **Order Successful :**  Cart gets empty automatically, once the user lands on this page.
+- **Seller :** Seller can add , view and delete food . And also update food details.
 
 ## Tech Stack 🛠️
 
