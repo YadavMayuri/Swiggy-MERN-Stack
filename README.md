@@ -43,7 +43,8 @@ First you have to go to the `Home Page`. There you have to click on Log in / Sig
 
  - **Multiple Food products Page**
 
-   ![Multiplefood](https://github.com/YadavMayuri/Swiggy-MERN-Stack/assets/126373490/a082613c-edd4-4420-9876-e30ec703f46c)
+   ![MultipleFoods](https://github.com/YadavMayuri/Swiggy-MERN-Stack/assets/126373490/6628f387-1b8e-42c9-a3eb-79fe48067400)
+
 
  - **Selected Category Page**
 
@@ -55,8 +56,7 @@ First you have to go to the `Home Page`. There you have to click on Log in / Sig
 
  - **Cart Page**
 
-![cart](https://github.com/YadavMayuri/Swiggy-MERN-Stack/assets/126373490/888e874d-6d91-4a2e-ab90-6c91e7667934)
-
+   ![cart](https://github.com/YadavMayuri/Swiggy-MERN-Stack/assets/126373490/07b7c331-6c5b-4909-88c7-7af9a3512041)
 
  - **Order success Page**
 
