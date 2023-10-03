@@ -224,7 +224,7 @@ const Cart = () => {
                                                         </div>
                                                         <div className="cart-payment-btn" id="Payrupees"
                                                             onClick={handleBuyNow}>
-                                                            ₹{totalPrice}
+                                                           Pay ₹{totalPrice}
                                                         </div>
 
                                                     </div>

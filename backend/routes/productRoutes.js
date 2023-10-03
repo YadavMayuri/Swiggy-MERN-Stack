@@ -5,7 +5,7 @@ const productRouter = express.Router()
 
 productRouter.get('/getAllProducts',getAllProducts)
 productRouter.get('/getSingleProduct/:id',getSingleProduct)
-productRouter.get('/getByCategory/', getByCategory);
+productRouter.get('/getByCategory', getByCategory);
 
 
 

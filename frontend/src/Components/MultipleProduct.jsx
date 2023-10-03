@@ -57,6 +57,7 @@ const MultipleProduct = () => {
             const response = await axios.get("http://localhost:3000/api/getAllProducts");
             if (response.data.success) {
                 setProducts(response.data.products);
+                console.log(response.data.products,"all products");
             } else {
                 toast.error(response.data.message);
             }
@@ -89,7 +90,7 @@ const MultipleProduct = () => {
         }
     }
 
-      // Step 2: Update selectedCategory when a category is clicked
+      // Update selectedCategory when a category is clicked
       const handleCategoryClick = (category) => {
         setSelectedCategory(category);
         console.log("Selected category:", category);
@@ -141,6 +142,8 @@ const MultipleProduct = () => {
 
                             <p className="dstatemuserName">{state?.user ? (<>{state?.user?.name}, what's on your mind?
                             </>) : (<> </>)}</p>
+
+
 
                             <div style={{ position: "sticky", zIndex: "1000", backgroundColor: "white", top: "0", height: "100%" }}>
                                 <div >
@@ -197,6 +200,8 @@ const MultipleProduct = () => {
                             </div>
 
 
+
+
                             <div className="product-content-wrapper" id="finalswiggyproducts">
                                 {products.map((product) => (
 
@@ -220,7 +225,7 @@ const MultipleProduct = () => {
                                             {/* <div className="dot-icon">.</div> */}
                                             <div className="delivery-time">19 mins</div>
                                             {/* <div className="dot-icon">.</div> */}
-                                            <div className="delivery-qty-count" id="for-product-price">{product.price} FOR TWO</div>
+                                            <div className="delivery-qty-count" id="for-product-price">₹{product.price} FOR TWO</div>
                                         </div>
                                         <hr className="h-line" />
                                         <div className="discount-offer-info">
