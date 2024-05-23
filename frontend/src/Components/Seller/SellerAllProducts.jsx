@@ -26,7 +26,7 @@ const SellerAllProducts = () => {
                 console.log("hii");
 
                 // const response = await api.post("/getAllProducts")
-                const response = await axios.post("http://localhost:3000/api/seller/sellerAllProducts", { sellerId: state?.user?.userId })
+                const response = await axios.post("http://localhost:8000/api/seller/sellerAllProducts", { sellerId: state?.user?.userId })
                 console.log(response.data.products);
                 if (response.data.success) {
                     setProducts(response.data.sProducts)
@@ -55,7 +55,7 @@ const SellerAllProducts = () => {
     async function deleteproduct(pId) {
         try {
             console.log("mmmmmmmm");
-            const response = await axios.post('http://localhost:3000/api/seller/deleteProduct', { pId })
+            const response = await axios.post('http://localhost:8000/api/seller/deleteProduct', { pId })
             console.log(response, "redolgnbjgvvv");
             if (response.data.success) {
                 setProducts(products.filter(pro => pro._id !== pId))

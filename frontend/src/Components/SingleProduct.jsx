@@ -24,7 +24,7 @@ const SingleProduct = () => {
             setLoading(true)
             try {
                 // console.log("inside try-----------------------------");
-                const response = await axios.get(`http://localhost:3000/api/getSingleProduct/${id}`)
+                const response = await axios.get(`http://localhost:8000/api/getSingleProduct/${id}`)
                 if (response.data.success) {
                     setProduct(response.data.response)
                 }
@@ -54,7 +54,7 @@ const SingleProduct = () => {
         if (id && state?.user) {
             try {
                 console.log(typeof (id), "state?.user?.id");
-                const { data } = await axios.post("http://localhost:3000/api/buyer/addCart", { pId: id, userId: state?.user?.userId })
+                const { data } = await axios.post("http://localhost:8000/api/buyer/addCart", { pId: id, userId: state?.user?.userId })
                 console.log(data, "data");
                 if (data.success) {
                     dispatch({

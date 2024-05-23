@@ -29,7 +29,7 @@ const Cart = () => {
             setLoading(true)
             try {
                 console.log("inside try get pro - frontend");
-                const response = await axios.post("http://localhost:3000/api/buyer/getCartProducts", { userId: state?.user?.userId })
+                const response = await axios.post("http://localhost:8000/api/buyer/getCartProducts", { userId: state?.user?.userId })
                 console.log(response.data, "inside try get pro - frontend");
 
                 if (response.data.success) {
@@ -58,7 +58,7 @@ const Cart = () => {
     async function removeProductfromCart(pId) {
         setLoading(true)
         try {
-            const response = await axios.post("http://localhost:3000/api/buyer/removeproduct", { pId, userId: state?.user?.userId })
+            const response = await axios.post("http://localhost:8000/api/buyer/removeproduct", { pId, userId: state?.user?.userId })
             if (response.data.success) {
                 dispatch({
                     type: "RemoveSingleProduct",
@@ -87,7 +87,7 @@ const Cart = () => {
     const buyNow = async () => {
         try {
             console.log(cartProduct, totalPrice, totalProduct, "cart,totalPrice, totalProducts from buynow");
-            const response = await axios.post('http://localhost:3000/api/buyer/buyNow', { userId: state?.user?.userId, cartProduct, totalPrice, totalProduct })
+            const response = await axios.post('http://localhost:8000/api/buyer/buyNow', { userId: state?.user?.userId, cartProduct, totalPrice, totalProduct })
             console.log(response, "res from buy now");
             if (response.data.success) {
                 dispatch({
