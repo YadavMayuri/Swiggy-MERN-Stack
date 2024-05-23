@@ -14,16 +14,15 @@ const app = express()
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(cors());
-app.use('/api',userRouter)
-app.use('/api',productRouter)
+app.use('/api', userRouter)
+app.use('/api', productRouter)
 
 
 
-mongoose.connect("mongodb+srv://mayuriyadav54:HGU1ZbJCNcqlTu0z@cluster0.s9gcceb.mongodb.net/Swiggy-MERN_DB")
-.then(()=>console.log("DB Connected successfully"))
-.catch((err)=>console.log("DB error =>",err))
+mongoose.connect(`${process.env.MongoDB_URL}`)
+    .then(() => console.log("DB Connected successfully"))
+    .catch((err) => console.log("DB error =>", err))
 
-const Port = process.env.PORT ;
+const Port = 8000;
 
-// app.listen(Port,()=>console.log(`Server listining on Port ${Port}`))
-app.listen(3000,()=>console.log("working on port 3000"))
+app.listen(`${Port}`, () => console.log(`Working on port ${Port}`))

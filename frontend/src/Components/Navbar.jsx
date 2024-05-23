@@ -21,7 +21,7 @@ const Navbar = () => {
                 <div className="navbar">
                     <div className="left-navbar">
                         <div className="product-swiggy-logo">
-                            <a href="./index.html">
+                            <a href="">
                                 <img src="https://cdn.worldvectorlogo.com/logos/swiggy-1.svg" alt="" />
                             </a>
                         </div>

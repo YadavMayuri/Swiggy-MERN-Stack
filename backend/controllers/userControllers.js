@@ -9,15 +9,15 @@ import Products from "../modals/productModal.js"
 
 export const Register = async (req, res) => {
     try {
-        const { name, email, password,confirmPassword,role } = req.body;
-        if (!name) return  res.status(400).json({message:"Name is required!"})
-        if (!email) return  res.status(400).json({message:"Email is required!"})
-        if (!password) return  res.status(400).json({message:"Password is required!"})
-        if (!confirmPassword) return  res.status(400).json({message:"Confirm password is required!"})
-        if (!role) return  res.status(400).json({message:"Role is required!"})
-        if (password.length < 5 || confirmPassword.length < 5) return res.status(400).json({message:"Password length should be greater than 5."}) 
-        if (password !== confirmPassword)  return res.status(400).json({message:"Passsword and confirm password not matched."})
-        
+        const { name, email, password, confirmPassword, role } = req.body;
+        if (!name) return res.status(400).json({ message: "Name is required!" })
+        if (!email) return res.status(400).json({ message: "Email is required!" })
+        if (!password) return res.status(400).json({ message: "Password is required!" })
+        if (!confirmPassword) return res.status(400).json({ message: "Confirm password is required!" })
+        if (!role) return res.status(400).json({ message: "Role is required!" })
+        if (password.length < 5 || confirmPassword.length < 5) return res.status(400).json({ message: "Password length should be greater than 5." })
+        if (password !== confirmPassword) return res.status(400).json({ message: "Passsword and confirm password not matched." })
+
         const existingUser = await Users.findOne({ email }).exec();
         if (existingUser) return res.status(400).json({ message: "Email already exist. Login insted." })
 
@@ -45,13 +45,13 @@ export const Login = async (req, res) => {
 
         if (!response) return res.status(400).json({ message: "User not found" })
         const comparePassword = await bcrypt.compare(password, response.password);
-        console.log(response,"resp from login");
+        console.log(response, "resp from login");
         if (!comparePassword) return res.status(400).json({ message: "Credientials not matched!" })
 
-        const userObj = { userId: response._id, name: response.name, email: response.email, role:response.role }
-        console.log(userObj,"userObj");
+        const userObj = { userId: response._id, name: response.name, email: response.email, role: response.role }
+        console.log(userObj, "userObj");
         const token = jwt.sign({ userId: response._id }, process.env.SwiggyJwtToken)
-        console.log(userObj,"userobj from login controller");
+        console.log(userObj, "userobj from login controller");
 
         console.log("jwt token", process.env.SwiggyJwtToken);
 
@@ -78,7 +78,7 @@ export const getCurrentUser = async (req, res) => {
         const user = await Users.findById(userId);
         // console.log(user, "user here");
         if (user) {
-            const userobj = { userId: user._id, name: user.name, email: user.email,role:user.role }
+            const userobj = { userId: user._id, name: user.name, email: user.email, role: user.role }
             // console.log(userobj,"user obj from current user controller");
             return res.status(200).json({ success: true, user: userobj })
 
@@ -108,7 +108,7 @@ export const addCart = async (req, res) => {
 
         const user = await Users.findOneAndUpdate({ _id: userId }, { $push: { cartProduct: pId } }, { new: true }).exec();
         if (!user) return res.json({ error: "User not found!" });
-        
+
         const cartProducts = user.cartProduct
 
         const discount = 0;
@@ -123,7 +123,7 @@ export const addCart = async (req, res) => {
         console.log(totalProducts, "total products here");
 
         const cartObj = { cartProducts, totalProducts }
-        return res.json({ success: true, message: "product added to cart!",cart: cartObj });
+        return res.json({ success: true, message: "product added to cart!", cart: cartObj });
 
     } catch (err) {
         console.log(err);
@@ -155,7 +155,7 @@ export const getCartProducts = async (req, res) => {
         console.log(totalProducts, "total products here");
 
         const cartObj = { cartProducts, totalProducts }
-        console.log(cartObj,"cartobject here from getcpro contr");
+        console.log(cartObj, "cartobject here from getcpro contr");
         return res.status(200).json({ success: true, cartProducts, totalPrice, totalProducts, subTotal, cart: cartObj })
 
 
@@ -194,7 +194,7 @@ export const removeproduct = async (req, res) => {
         console.log(totalProducts, "total products here");
 
         const cartObj = { cartProducts, totalProducts }
-        console.log(cartObj,"cartobject here from remove contr");
+        console.log(cartObj, "cartobject here from remove contr");
 
         return res.status(200).json({ success: true, message: "Product removed from cart!", cartProducts, totalPrice, totalProducts, subTotal, cart: cartObj });
 
@@ -229,7 +229,7 @@ export const buyNow = async (req, res) => {
         const finalCart = updateCart.cartProduct
         const totalProducts = finalCart.length;
         const cartObj = { allCartproducts: finalCart, totalProducts }
-        console.log(cartObj,"cartobject here from buynow contr");
+        console.log(cartObj, "cartobject here from buynow contr");
 
         return res.json({ success: true, finalCart, cart: cartObj })
 

@@ -13,7 +13,7 @@ const SellerDashboard = () => {
                 <div className="commonScreen">
                     <div className="sbdWrapper">
                         <div className="sdbheadwrap">
-                            <h1 style={{ marginTop: "2rem", fontSize: "2.8rem", color: "#fc8019" }}>Seller Dashboard</h1>
+                            <h1 style={{ marginTop: "2rem", fontSize: "2.8rem", color: "#fc8019" }}>Seller Page</h1>
                             <h2 style={{ marginTop: "2rem", fontSize: "2.8rem", }}>Welcome!</h2>
                         </div>
                     </div>

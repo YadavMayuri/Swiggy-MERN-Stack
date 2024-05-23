@@ -88,7 +88,7 @@ const SellerAllProducts = () => {
                                 <div style={{ width: "90%", margin: "auto" }}>
                                     <div className="path" style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
                                         <div className="path-menu" style={{ fontSize: "2rem", padding: "3rem 0 0 0", fontWeight: "bold" }}>Your Products : {products.length}</div>
-                                        <div className="path-menu" onClick={()=>router('/sellerdashboard')} style={{ fontSize: "2rem", padding: "3rem 0 0 0", fontWeight: "bold",cursor:"pointer" }}>Back To Dashboard</div>
+                                        <div className="path-menu" onClick={()=>router('/sellerdashboard')} style={{ fontSize: "2rem", padding: "3rem 0 0 0", fontWeight: "bold",cursor:"pointer" }}>Back</div>
                                     </div>
                                 
                                     <div className="products-container" >

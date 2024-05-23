@@ -138,12 +138,12 @@ const SingleProduct = () => {
 
                                         </div>
 
-                                        <div className="other-products">
+                                        {/* <div className="other-products">
                                             <h3 className="deal-of-day">
                                                 <span>Rs {product.price} Deal Of The Day (18)</span>
                                             </h3>
                                             <span><i className="fa-solid fa-chevron-up"></i></span>
-                                        </div>
+                                        </div> */}
 
 
                                         {/* <!-- best deals --> */}
