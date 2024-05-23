@@ -34,8 +34,8 @@ const HandleAuthContext = ({ children }) => {
             const token = JSON.parse(localStorage.getItem("SwiggyJwtToken"))
             // console.log("token here",token);
             if (token) {
-                const response = await axios.post("https://swiggy-mern-stack.onrender.com/api/getCurrentUser", { token })
-                // console.log(response,"response here from auth context");
+                const response = await axios.post("http://localhost:8000/api/getCurrentUser", { token })
+                console.log(response,"response here from auth context");
                 if (response.data.success) {
                     dispatch({
                         type: "LOGIN",

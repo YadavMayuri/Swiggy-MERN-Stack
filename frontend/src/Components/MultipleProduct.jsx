@@ -27,7 +27,7 @@ const MultipleProduct = () => {
                 console.log("hii");
 
                 // const response = await api.post("/getAllProducts")
-                const response = await axios.get("https://swiggy-mern-stack.onrender.com/api/getAllProducts")
+                const response = await axios.get("http://localhost:8000/api/getAllProducts")
                 console.log(response.data.products);
                 if (response.data.success) {
                     setProducts(response.data.products)
@@ -54,7 +54,7 @@ const MultipleProduct = () => {
 
     async function getAllProducts() {
         try {
-            const response = await axios.get("https://swiggy-mern-stack.onrender.com/api/getAllProducts");
+            const response = await axios.get("http://localhost:8000/api/getAllProducts");
             if (response.data.success) {
                 setProducts(response.data.products);
                 console.log(response.data.products,"all products");
@@ -71,7 +71,7 @@ const MultipleProduct = () => {
     async function getByCategory(category) {
         try {
             console.log("in grtcat");
-            const response = await axios.get('https://swiggy-mern-stack.onrender.com/api/getByCategory', {
+            const response = await axios.get('http://localhost:8000/api/getByCategory', {
                 params: { category } // Pass the category as a query parameter
             });
 

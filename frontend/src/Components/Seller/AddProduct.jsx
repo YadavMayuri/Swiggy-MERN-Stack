@@ -30,7 +30,7 @@ const AddProduct = () => {
         try {
             console.log("inside try");
 
-            const response = await axios.post("https://swiggy-mern-stack.onrender.com/api/seller/addProduct", { productData, userId: state?.user?.userId })
+            const response = await axios.post("http://localhost:8000/api/seller/addProduct", { productData, userId: state?.user?.userId })
 
             console.log(response, "resss");
             if (response.data.success) {

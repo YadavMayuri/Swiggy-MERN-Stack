@@ -28,13 +28,15 @@ const Register = () => {
         const { name, email, password, confirmPassword, role } = userData;
         console.log(name, email, password, confirmPassword, role, "userData");
         try {
-            const response = await axios.post('https://swiggy-mern-stack.onrender.com/api/register', {
+            console.log('jjj');
+            const response = await axios.post('http://localhost:8000/api/register', {
                 name: userData.name,
                 email: userData.email,
                 password: userData.password,
                 confirmPassword: userData.confirmPassword,
                 role: userData.role
             })
+            console.log(response,'response');
             if (response.data.success) {
                 setuserData({ name: '', email: '', password: '', confirmPassword: '', role: 'buyer' })
                 router('/login')

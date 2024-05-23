@@ -16,7 +16,7 @@ const UpdateProduct = () => {
             setLoading(true)
             try {
                 console.log(pId, "pppid");
-                const response = await axios.get(`https://swiggy-mern-stack.onrender.com/api/seller/getUpdateProduct/${pId}`)
+                const response = await axios.get(`http://localhost:8000/api/seller/getUpdateProduct/${pId}`)
                 console.log(response, "response from get update pro");
                 if (response.data.success) {
                     setProductData(response.data.product)
@@ -47,7 +47,7 @@ const UpdateProduct = () => {
 
             console.log(productData, "pro data from handlesubmit");
 
-            const response = await axios.put(`https://swiggy-mern-stack.onrender.com/api/seller/updateProduct/${pId}`, { productData })
+            const response = await axios.put(`http://localhost:8000/api/seller/updateProduct/${pId}`, { productData })
 
             console.log(response, "response from put product");
             if (response.data.success) {

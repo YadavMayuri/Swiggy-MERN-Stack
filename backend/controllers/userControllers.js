@@ -10,6 +10,7 @@ import Products from "../modals/productModal.js"
 export const Register = async (req, res) => {
     try {
         const { name, email, password, confirmPassword, role } = req.body;
+        console.log(req.body,'req.body');
         if (!name) return res.status(400).json({ message: "Name is required!" })
         if (!email) return res.status(400).json({ message: "Email is required!" })
         if (!password) return res.status(400).json({ message: "Password is required!" })
@@ -76,10 +77,10 @@ export const getCurrentUser = async (req, res) => {
         const userId = decodedtoken.userId;
 
         const user = await Users.findById(userId);
-        // console.log(user, "user here");
+        console.log(user, "user here");
         if (user) {
             const userobj = { userId: user._id, name: user.name, email: user.email, role: user.role }
-            // console.log(userobj,"user obj from current user controller");
+            console.log(userobj,"user obj from current user controller");
             return res.status(200).json({ success: true, user: userobj })
 
         } else {
