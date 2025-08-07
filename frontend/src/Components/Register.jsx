@@ -29,7 +29,7 @@ const Register = () => {
         console.log(name, email, password, confirmPassword, role, "userData");
         try {
             console.log('jjj');
-            const response = await axios.post('https://swiggy-mern-stack.onrender.com/api/register', {
+            const response = await axios.post('https://swiggy-mern-stack-1.onrender.com/api/register', {
                 name: userData.name,
                 email: userData.email,
                 password: userData.password,

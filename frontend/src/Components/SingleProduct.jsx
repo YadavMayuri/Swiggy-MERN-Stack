@@ -24,7 +24,7 @@ const SingleProduct = () => {
             setLoading(true)
             try {
                 // console.log("inside try-----------------------------");
-                const response = await axios.get(`https://swiggy-mern-stack.onrender.com/api/getSingleProduct/${id}`)
+                const response = await axios.get(`https://swiggy-mern-stack-1.onrender.com/api/getSingleProduct/${id}`)
                 if (response.data.success) {
                     setProduct(response.data.response)
                 }
@@ -54,7 +54,7 @@ const SingleProduct = () => {
         if (id && state?.user) {
             try {
                 console.log(typeof (id), "state?.user?.id");
-                const { data } = await axios.post("https://swiggy-mern-stack.onrender.com/api/buyer/addCart", { pId: id, userId: state?.user?.userId })
+                const { data } = await axios.post("https://swiggy-mern-stack-1.onrender.com/api/buyer/addCart", { pId: id, userId: state?.user?.userId })
                 console.log(data, "data");
                 if (data.success) {
                     dispatch({

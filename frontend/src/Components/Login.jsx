@@ -25,7 +25,7 @@ const Login = () => {
 
         try {
             console.log("in try login");
-            const response = await axios.post('https://swiggy-mern-stack.onrender.com/api/login', {
+            const response = await axios.post('https://swiggy-mern-stack-1.onrender.com/api/login', {
                 email: userData.email,
                 password: userData.password,
             }

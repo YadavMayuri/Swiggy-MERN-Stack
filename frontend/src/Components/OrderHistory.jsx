@@ -21,7 +21,7 @@ const OrderHistory = () => {
         const getOrderHistory = async () => {
             setLoading(true)
             try {
-                const response = await axios.post('https://swiggy-mern-stack.onrender.com/api/buyer/getOrderHistory', { userId: state?.user?.userId })
+                const response = await axios.post('https://swiggy-mern-stack-1.onrender.com/api/buyer/getOrderHistory', { userId: state?.user?.userId })
                 console.log(response, "res from get history");
                 if (response.data.success) {
                     setOrderData(response.data.orderHistory)
