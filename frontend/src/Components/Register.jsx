@@ -90,7 +90,7 @@ const Register = () => {
 
                             <form onSubmit={handleSubmit} className="regFormWrap">
                                 <div className="l-input-login">
-                                    <input type="text" onChange={handleChange} name="name" required />
+                                    <input type="text" onChange={handleChange} name="name" required  style={{textTransform:"capitalize"}}/>
                                     <label>Name</label>
                                 </div>
                                 <div className="l-input-login">

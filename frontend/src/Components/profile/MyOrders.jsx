@@ -72,7 +72,7 @@ const MyOrders = () => {
                                         <div className="bottomOrderContentWrapper">
                                             <div className="totalPriceDate">
                                                 <span> Total Price :  ₹ {orderHead.orderDetails.totalPrice}</span>
-                                                <span> delivered on  {orderHead.orderDetails.createdAt}  <span ><Icon.CheckCircleFill style={{ color: "#60b246", fontSize: "1.4rem" }} /></span></span>
+                                                <span> Delivered on  {new Date(orderHead.orderDetails.createdAt).toLocaleDateString()}  <span ><Icon.CheckCircleFill style={{ color: "#60b246", fontSize: "1.4rem" }} /></span></span>
 
                                             </div>
                                             <div className="OrdeBbuttonWrapper">
